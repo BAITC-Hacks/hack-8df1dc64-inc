@@ -35,7 +35,25 @@ source .venv/bin/activate
 python -m pip install -r data/requirements.txt
 ```
 
-Для нового окружения скопировать `.env.example` в `.env` (`cp` на Linux/macOS, `Copy-Item` в PowerShell). **Существующий .env не перезаписывать.** Заполнить `OPENAI_API_KEY` локально. Ключ не помещать в код, браузер или Git.
+### Куда проверяющему вставить ключ OpenAI
+
+В корне репозитория (рядом с этим `README.md`) создайте локальный файл `.env` из шаблона `.env.example`, если файла ещё нет:
+
+```sh
+# Linux/macOS
+cp .env.example .env
+# Windows PowerShell: вместо команды выше
+Copy-Item .env.example .env
+```
+
+Откройте `.env` и вставьте **свой** ключ в строку `OPENAI_API_KEY` после знака `=`:
+
+```dotenv
+OPENAI_API_KEY=ваш_ключ_OpenAI
+OPENAI_MODEL=gpt-4o-mini
+```
+
+Не перезаписывайте существующий `.env`. `OPENAI_MODEL` можно изменить, если у ключа есть доступ к другой модели OpenAI. Сохраните файл и запустите backend по инструкции ниже; если сервер уже работает, перезапустите его. Для Docker Compose используется тот же `.env`. Ключ остаётся на backend: не вставляйте его в UI, код или Git.
 
 Первый терминал, из корня репозитория:
 
