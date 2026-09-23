@@ -1,4 +1,4 @@
-﻿# Ветропрогноз — Agentic AI для двух турбин ВЭС
+﻿# Vento — Agentic AI для двух турбин ВЭС
 
 Почасовой прогноз нормализованной мощности на 24–48 часов: архив NOAA GFS → проверка доступности на момент запуска → подготовка реальной истории → эмпирическая кривая мощности → анализ OpenAI → обновление погоды и повторный расчёт при изменении входов.
 
@@ -35,7 +35,7 @@ source .venv/bin/activate
 python -m pip install -r data/requirements.txt
 ```
 
-Для нового окружения скопировать `.env.example` в `.env` (`cp` на Linux/macOS, `Copy-Item` в PowerShell). **Существующий .env не перезаписывать.** Заполнить `OPENAI_API_KEY` локально. Ключ не помещать в код, браузер или Git.
+Для нового окружения скопировать `.env.example` в `.env` (`cp` на Linux/macOS, `Copy-Item` в PowerShell). **Существующий .env не перезаписывать.** Проверяющий заполняет `OPENAI_API_KEY` своим ключом локально, затем запускает или перезапускает backend. Ключ не входит в поставку и не помещается в код, браузер или Git.
 
 Первый терминал, из корня репозитория:
 
@@ -67,7 +67,7 @@ node ui/server.mjs
 ```sh
 python -m unittest discover -s backend/tests -t . -v
 python -m unittest discover -s data/tests -v
-node --test ui/tests/ui.test.mjs ui/tests/draft.test.mjs ui/tests/design.test.mjs ui/tests/api.test.mjs
+node --test ui/tests/*.test.mjs
 ```
 
 Эквивалентные Linux/Git Bash команды: `./backend/test.sh`, `./data/test.sh`, `./ui/test.sh`.

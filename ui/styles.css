@@ -11,7 +11,7 @@
   --accent: #843d25;
 }
 * { box-sizing: border-box; }
-.power-chart { width: 100%; min-width: 260px; }
+.power-chart { display: block; width: 100%; min-width: 260px; background: #fff; border: 1px solid #b8bec4; }
 .power-chart text { fill: var(--muted); font-size: 12px; }
 .table-scroll { overflow-x: auto; max-height: 450px; }
 #forecast-output table { border-collapse: collapse; font-size: 12px; width: 100%; }

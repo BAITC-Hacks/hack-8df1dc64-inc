@@ -13,6 +13,52 @@ const steps = { acquire_weather: 'Получение и проверка пог�
   agent_refresh_weather: 'Проверка обновления по решению агента', recalculate: 'Повторный расчёт', reanalyze: 'Повторный анализ' };
 let downloadUrl;
 
+const seriesStyles = {
+  turbine_1: { color: '#c62828', description: 'красная сплошная', dash: null },
+  turbine_2: { color: '#1565c0', description: 'синяя прерывистая', dash: '7 4' },
+};
+
+export function createPowerChart(forecast, document = globalThis.document) {
+  const ns = 'http://www.w3.org/2000/svg';
+  function svgElement(tag, attributes, text) {
+    const node = document.createElementNS(ns, tag);
+    for (const [name, value] of Object.entries(attributes)) node.setAttribute(name, String(value));
+    if (text !== undefined) node.textContent = text;
+    return node;
+  }
+  const chart = svgElement('svg', {
+    viewBox: '0 0 600 260', role: 'img', class: 'power-chart',
+    'aria-label': 'Почасовая мощность: турбина 1 красная сплошная, турбина 2 синяя прерывистая. Время UTC. Точные значения в таблице ниже.',
+  });
+  const grid = svgElement('g', { class: 'chart-grid', stroke: '#d9dde1', 'stroke-width': 1 });
+  chart.append(grid);
+  for (const value of [0, 0.25, 0.5, 0.75, 1]) {
+    const y = 220 - value * 200;
+    grid.append(svgElement('line', { x1: 44, x2: 584, y1: y, y2: y }));
+    chart.append(svgElement('text', { x: 36, y: y + 4, 'text-anchor': 'end' }, number.format(value)));
+  }
+  const timeline = forecast.points.filter((point) => point.turbine_id === forecast.turbine_ids[0]);
+  const xAt = (index, length) => 44 + index * 540 / Math.max(1, length - 1);
+  const ticks = [...new Set([0, 0.25, 0.5, 0.75, 1].map((ratio) => Math.round(ratio * (timeline.length - 1))))];
+  for (const index of ticks) {
+    const x = xAt(index, timeline.length);
+    grid.append(svgElement('line', { x1: x, x2: x, y1: 20, y2: 220 }));
+    chart.append(svgElement('text', { x, y: 243, 'text-anchor': index === 0 ? 'start' : index === timeline.length - 1 ? 'end' : 'middle' }, timeline[index].valid_at.slice(11, 16)));
+  }
+  for (const turbine of forecast.turbine_ids) {
+    const points = forecast.points.filter((point) => point.turbine_id === turbine);
+    const style = seriesStyles[turbine];
+    const line = svgElement('polyline', {
+      'data-turbine': turbine,
+      points: points.map((point, index) => `${xAt(index, points.length)},${220 - point.normalized_power * 200}`).join(' '),
+      fill: 'none', stroke: style.color, 'stroke-width': 2.5, 'stroke-linejoin': 'round',
+    });
+    if (style.dash) line.setAttribute('stroke-dasharray', style.dash);
+    chart.append(line);
+  }
+  return chart;
+}
+
 function element(tag, text, parent) {
   const node = document.createElement(tag);
   node.textContent = text;
@@ -27,27 +73,8 @@ export function renderResult(result) {
   const { forecast, analysis } = result;
   element('h3', 'Нормализованная мощность по часам', root);
   element('p', `Запуск ${forecast.as_of}; горизонт ${forecast.horizon_hours} ч. Значения в исходной шкале 0–1, без перевода в кВт.`, root);
-  const ns = 'http://www.w3.org/2000/svg';
-  const chart = document.createElementNS(ns, 'svg');
-  chart.setAttribute('viewBox', '0 0 600 230');
-  chart.setAttribute('role', 'img');
-  chart.setAttribute('aria-label', 'График нормализованной мощности; точные значения приведены в таблице ниже.');
-  chart.classList.add('power-chart');
-  for (const y of [0, 0.5, 1]) {
-    const label = document.createElementNS(ns, 'text');
-    label.setAttribute('x', '0'); label.setAttribute('y', String(200 - y * 180)); label.textContent = String(y);
-    chart.append(label);
-  }
-  forecast.turbine_ids.forEach((turbine, index) => {
-    const points = forecast.points.filter((point) => point.turbine_id === turbine);
-    const line = document.createElementNS(ns, 'polyline');
-    line.setAttribute('points', points.map((point, i) => `${40 + i * 550 / (points.length - 1)},${200 - point.normalized_power * 180}`).join(' '));
-    line.setAttribute('fill', 'none'); line.setAttribute('stroke', index === 0 ? '#843d25' : '#303839');
-    line.setAttribute('stroke-width', '2'); if (index) line.setAttribute('stroke-dasharray', '6 3');
-    chart.append(line);
-    element('p', `${TURBINES[turbine]}: ${index ? 'тёмная пунктирная' : 'терракотовая сплошная'} линия`, root);
-  });
-  root.append(chart);
+  for (const turbine of forecast.turbine_ids) element('p', `${TURBINES[turbine]}: ${seriesStyles[turbine].description} линия`, root);
+  root.append(createPowerChart(forecast));
   element('p', `От ${forecast.points[0].valid_at} до ${forecast.points[forecast.horizon_hours - 1].valid_at}. Время UTC, метка конца часа.`, root);
   const details = element('details', '', root);
   element('summary', 'Таблица всех часов', details);

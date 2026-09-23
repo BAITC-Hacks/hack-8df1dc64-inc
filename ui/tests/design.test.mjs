@@ -41,7 +41,9 @@ test('failed module load hides the skeleton and any partial preview, exposing a 
 test('loaded styling and public pages respect the user design restrictions', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
   assert.doesNotMatch(css, /gradient\(|box-shadow\s*:|drop-shadow\(|backdrop-filter\s*:|transition\s*:|border-left\s*:/i);
-  assert.doesNotMatch(css, /(?:background|background-color)\s*:\s*(?:white\b|#fff(?:fff)?\b)/i);
+  const chartStyle = css.match(/\.power-chart\s*\{[^}]*\}/)?.[0];
+  assert.match(chartStyle, /background:\s*#fff;/, 'White plot background explicitly requested for readability');
+  assert.doesNotMatch(css.replace(chartStyle, ''), /(?:background|background-color)\s*:\s*(?:white\b|#fff(?:fff)?\b)/i);
   assert.doesNotMatch(css, /font-family\s*:[^;]*(?:\bInter\b|\bGeist\b|Space Grotesk)/i);
   for (const match of css.matchAll(/border-radius\s*:\s*([^;]+)/g)) assert.equal(match[1].trim(), '0');
   for (const file of ['index.html', 'terms.html', 'privacy.html']) {
