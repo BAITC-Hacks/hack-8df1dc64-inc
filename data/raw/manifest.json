@@ -1,0 +1,22 @@
+{
+  "source": "CSV организаторов HackAlemAI, переданы пользователем 2026-09-23",
+  "source_timezone": "UTC+05:00",
+  "timezone_evidence": "Подтверждено пользователем 2026-09-23: gmt+5 по астанинскому времени",
+  "timestamp_role": null,
+  "files": [
+    {
+      "turbine_id": "turbine_1",
+      "path": "turbine_1.csv.gz",
+      "original_filename": "Dataset HackAlemAI для участников 11.03.2023-28.02.2026 - turbine 1.csv",
+      "sha256_uncompressed": "c4c341582fb2dd348b7187f0128cff265fe055f469413871ebb5db50eef58b5b",
+      "bytes_uncompressed": 6049266
+    },
+    {
+      "turbine_id": "turbine_2",
+      "path": "turbine_2.csv.gz",
+      "original_filename": "Dataset HackAlemAI для участников 11.03.2023-28.02.2026 - turbine 2.csv",
+      "sha256_uncompressed": "820578cd18bb557cd30c2e102f3ae5a386dfc6c489a5a15743339c2b017305e5",
+      "bytes_uncompressed": 6354725
+    }
+  ]
+}
