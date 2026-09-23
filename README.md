@@ -66,7 +66,7 @@ node ui/server.mjs
 
 ```sh
 python -m unittest discover -s backend/tests -t . -v
-python -m unittest discover -s data/tests -t . -v
+python -m unittest discover -s data/tests -v
 node --test ui/tests/ui.test.mjs ui/tests/draft.test.mjs ui/tests/design.test.mjs ui/tests/api.test.mjs
 ```
 
