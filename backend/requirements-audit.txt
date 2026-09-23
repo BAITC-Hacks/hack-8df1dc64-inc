@@ -1,0 +1,2 @@
+# Optional plotting dependency; not needed by the forecast server.
+matplotlib==3.11.2

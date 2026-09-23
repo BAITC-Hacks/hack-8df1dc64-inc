@@ -1,0 +1,118 @@
+[
+  {
+    "request": {
+      "as_of": "2026-02-01T17:00:00Z",
+      "horizon_hours": 24,
+      "turbine_ids": [
+        "turbine_1",
+        "turbine_2"
+      ],
+      "timestamp_role": "end",
+      "refresh_weather": false
+    },
+    "points": 48,
+    "cycle": [
+      {
+        "step": "acquire_weather",
+        "duration_ms": 67.83,
+        "display": "0.07 с (68 мс)"
+      },
+      {
+        "step": "prepare_and_forecast",
+        "duration_ms": 84.33,
+        "display": "0.08 с (84 мс)"
+      },
+      {
+        "step": "analyze",
+        "duration_ms": 5398.42,
+        "display": "5.40 с (5398 мс)"
+      }
+    ],
+    "turbines": [
+      {
+        "turbine": "turbine_1",
+        "wind_range_ms": [
+          0.7366945483073768,
+          3.410321360633662
+        ],
+        "power_range": [
+          0.009982893450635386,
+          0.046244393059136135
+        ],
+        "low_wind_hours": 9,
+        "low_wind_power_range": [
+          0.009982893450635386,
+          0.014948897997066682
+        ],
+        "extrapolated_hours": 1
+      },
+      {
+        "turbine": "turbine_2",
+        "wind_range_ms": [
+          0.7366945483073768,
+          3.410321360633662
+        ],
+        "power_range": [
+          0.009947344322344322,
+          0.04415866882381346
+        ],
+        "low_wind_hours": 9,
+        "low_wind_power_range": [
+          0.009947344322344322,
+          0.01393648628447353
+        ],
+        "extrapolated_hours": 1
+      }
+    ],
+    "response_id": "resp_0deeb8495fb4f6b1016ab3c676b52c87d281e5d68dc8ad6b8d"
+  },
+  {
+    "request": {
+      "as_of": "2026-02-14T19:00:00Z",
+      "horizon_hours": 48,
+      "turbine_ids": [
+        "turbine_2"
+      ],
+      "timestamp_role": "end",
+      "refresh_weather": false
+    },
+    "points": 48,
+    "cycle": [
+      {
+        "step": "acquire_weather",
+        "duration_ms": 14.96,
+        "display": "0.01 с (15 мс)"
+      },
+      {
+        "step": "prepare_and_forecast",
+        "duration_ms": 90.4,
+        "display": "0.09 с (90 мс)"
+      },
+      {
+        "step": "analyze",
+        "duration_ms": 3164,
+        "display": "3.16 с (3164 мс)"
+      }
+    ],
+    "turbines": [
+      {
+        "turbine": "turbine_2",
+        "wind_range_ms": [
+          0.6099665120486204,
+          4.207733182268642
+        ],
+        "power_range": [
+          0.009947344322344322,
+          0.0786846821393598
+        ],
+        "low_wind_hours": 4,
+        "low_wind_power_range": [
+          0.009947344322344322,
+          0.009963886809552425
+        ],
+        "extrapolated_hours": 2
+      }
+    ],
+    "response_id": "resp_023c9f193822e1ab016ab3c67b5bfc87d295249b63f709e8b1"
+  }
+]

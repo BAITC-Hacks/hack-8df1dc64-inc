@@ -1,0 +1,304 @@
+{
+  "cutoff": "2026-01-31T19:00:00Z",
+  "timestamp_role": "end",
+  "timestamp_role_confirmed": false,
+  "source_hashes": {
+    "turbine_1": "c4c341582fb2dd348b7187f0128cff265fe055f469413871ebb5db50eef58b5b",
+    "turbine_2": "820578cd18bb557cd30c2e102f3ae5a386dfc6c489a5a15743339c2b017305e5"
+  },
+  "excluded_incomplete_hours": 308,
+  "excluded_test_rows": 0,
+  "turbines": [
+    {
+      "turbine_id": "turbine_1",
+      "hours": 23678,
+      "min_wind_ms": 0.0,
+      "max_wind_ms": 20.14,
+      "hours_le_2_ms": 3181,
+      "share_le_2_ms_percent": 13.434411690176535,
+      "mean_observed_power_le_2_ms": 0.010401865241538301,
+      "first_curve_knot": {
+        "wind_speed_ms": 0.7673264907135875,
+        "normalized_power": 0.009982893450635386,
+        "sample_count": 682
+      },
+      "low_wind_predictions": [
+        {
+          "wind_speed_ms": 0,
+          "normalized_power": 0.009982893450635386,
+          "extrapolated": true
+        },
+        {
+          "wind_speed_ms": 0.5,
+          "normalized_power": 0.009982893450635386,
+          "extrapolated": true
+        },
+        {
+          "wind_speed_ms": 1,
+          "normalized_power": 0.010147453834646653,
+          "extrapolated": false
+        },
+        {
+          "wind_speed_ms": 1.5,
+          "normalized_power": 0.01050108322828918,
+          "extrapolated": false
+        },
+        {
+          "wind_speed_ms": 2,
+          "normalized_power": 0.015513988750768738,
+          "extrapolated": false
+        }
+      ],
+      "histogram_1_ms": [
+        {
+          "left_ms": 0,
+          "right_ms": 1,
+          "hours": 682
+        },
+        {
+          "left_ms": 1,
+          "right_ms": 2,
+          "hours": 2495
+        },
+        {
+          "left_ms": 2,
+          "right_ms": 3,
+          "hours": 2140
+        },
+        {
+          "left_ms": 3,
+          "right_ms": 4,
+          "hours": 1868
+        },
+        {
+          "left_ms": 4,
+          "right_ms": 5,
+          "hours": 2003
+        },
+        {
+          "left_ms": 5,
+          "right_ms": 6,
+          "hours": 2324
+        },
+        {
+          "left_ms": 6,
+          "right_ms": 7,
+          "hours": 2304
+        },
+        {
+          "left_ms": 7,
+          "right_ms": 8,
+          "hours": 1976
+        },
+        {
+          "left_ms": 8,
+          "right_ms": 9,
+          "hours": 1554
+        },
+        {
+          "left_ms": 9,
+          "right_ms": 10,
+          "hours": 1390
+        },
+        {
+          "left_ms": 10,
+          "right_ms": 11,
+          "hours": 1550
+        },
+        {
+          "left_ms": 11,
+          "right_ms": 12,
+          "hours": 1529
+        },
+        {
+          "left_ms": 12,
+          "right_ms": 13,
+          "hours": 976
+        },
+        {
+          "left_ms": 13,
+          "right_ms": 14,
+          "hours": 497
+        },
+        {
+          "left_ms": 14,
+          "right_ms": 15,
+          "hours": 246
+        },
+        {
+          "left_ms": 15,
+          "right_ms": 16,
+          "hours": 93
+        },
+        {
+          "left_ms": 16,
+          "right_ms": 17,
+          "hours": 27
+        },
+        {
+          "left_ms": 17,
+          "right_ms": 18,
+          "hours": 16
+        },
+        {
+          "left_ms": 18,
+          "right_ms": 19,
+          "hours": 4
+        },
+        {
+          "left_ms": 19,
+          "right_ms": 20,
+          "hours": 3
+        },
+        {
+          "left_ms": 20,
+          "right_ms": 21,
+          "hours": 1
+        }
+      ]
+    },
+    {
+      "turbine_id": "turbine_2",
+      "hours": 24786,
+      "min_wind_ms": 0.22833333333333333,
+      "max_wind_ms": 19.560000000000002,
+      "hours_le_2_ms": 3317,
+      "share_le_2_ms_percent": 13.382554667957718,
+      "mean_observed_power_le_2_ms": 0.009962315345191439,
+      "first_curve_knot": {
+        "wind_speed_ms": 0.7598443223443223,
+        "normalized_power": 0.009947344322344322,
+        "sample_count": 728
+      },
+      "low_wind_predictions": [
+        {
+          "wind_speed_ms": 0,
+          "normalized_power": 0.009947344322344322,
+          "extrapolated": true
+        },
+        {
+          "wind_speed_ms": 0.5,
+          "normalized_power": 0.009947344322344322,
+          "extrapolated": true
+        },
+        {
+          "wind_speed_ms": 1,
+          "normalized_power": 0.009953654076791116,
+          "extrapolated": false
+        },
+        {
+          "wind_speed_ms": 1.5,
+          "normalized_power": 0.00996679087727901,
+          "extrapolated": false
+        },
+        {
+          "wind_speed_ms": 2,
+          "normalized_power": 0.014432942620713644,
+          "extrapolated": false
+        }
+      ],
+      "histogram_1_ms": [
+        {
+          "left_ms": 0,
+          "right_ms": 1,
+          "hours": 728
+        },
+        {
+          "left_ms": 1,
+          "right_ms": 2,
+          "hours": 2587
+        },
+        {
+          "left_ms": 2,
+          "right_ms": 3,
+          "hours": 2273
+        },
+        {
+          "left_ms": 3,
+          "right_ms": 4,
+          "hours": 2041
+        },
+        {
+          "left_ms": 4,
+          "right_ms": 5,
+          "hours": 2102
+        },
+        {
+          "left_ms": 5,
+          "right_ms": 6,
+          "hours": 2311
+        },
+        {
+          "left_ms": 6,
+          "right_ms": 7,
+          "hours": 2443
+        },
+        {
+          "left_ms": 7,
+          "right_ms": 8,
+          "hours": 2009
+        },
+        {
+          "left_ms": 8,
+          "right_ms": 9,
+          "hours": 1554
+        },
+        {
+          "left_ms": 9,
+          "right_ms": 10,
+          "hours": 1436
+        },
+        {
+          "left_ms": 10,
+          "right_ms": 11,
+          "hours": 1577
+        },
+        {
+          "left_ms": 11,
+          "right_ms": 12,
+          "hours": 1620
+        },
+        {
+          "left_ms": 12,
+          "right_ms": 13,
+          "hours": 1096
+        },
+        {
+          "left_ms": 13,
+          "right_ms": 14,
+          "hours": 578
+        },
+        {
+          "left_ms": 14,
+          "right_ms": 15,
+          "hours": 252
+        },
+        {
+          "left_ms": 15,
+          "right_ms": 16,
+          "hours": 124
+        },
+        {
+          "left_ms": 16,
+          "right_ms": 17,
+          "hours": 31
+        },
+        {
+          "left_ms": 17,
+          "right_ms": 18,
+          "hours": 17
+        },
+        {
+          "left_ms": 18,
+          "right_ms": 19,
+          "hours": 3
+        },
+        {
+          "left_ms": 19,
+          "right_ms": 20,
+          "hours": 4
+        }
+      ]
+    }
+  ]
+}

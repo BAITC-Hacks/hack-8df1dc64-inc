@@ -2,6 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { forecastRequest, requestForecast, csvResult } from '../api.mjs';
 import { defaultSelection } from '../parameters.mjs';
+import { formatDuration } from '../results.mjs';
+
+test('stage durations convert API milliseconds once and label both units', () => {
+  assert.equal(formatDuration(81847), '81.85 с (81847 мс)');
+  assert.equal(formatDuration(16818), '16.82 с (16818 мс)');
+  assert.equal(formatDuration(125), '0.13 с (125 мс)');
+  assert.equal(formatDuration(0), '0.00 с (0 мс)');
+});
 
 test('UI sends precise UTC, explicit timestamp role and refresh choice', () => {
   assert.deepEqual(forecastRequest(defaultSelection(), 'end'), {

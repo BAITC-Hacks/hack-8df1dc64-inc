@@ -2,6 +2,10 @@ import { TURBINES } from './parameters.mjs';
 import { csvResult } from './api.mjs';
 
 const number = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 3 });
+export function formatDuration(durationMs) {
+  // API durations are milliseconds; show both units without locale ambiguity.
+  return `${(durationMs / 1000).toFixed(2)} с (${Math.round(durationMs)} мс)`;
+}
 const warningTexts = {
   TIMESTAMP_ROLE_UNCONFIRMED: 'Смысл временной метки выбран как допущение и не подтверждён организатором.',
   WIND_HEIGHT_UNKNOWN: 'Высота исторического измерения ветра неизвестна; поправка высоты не применена.',
@@ -76,6 +80,6 @@ export function renderResult(result) {
   element('h3', 'Источник и выполненные этапы', root);
   element('p', `${forecast.weather.source}; выпуск ${forecast.weather.run_id}; доступен ${forecast.weather.available_at}.`, root);
   const trace = element('ol', '', root);
-  for (const item of result.cycle) element('li', `${steps[item.step] ?? item.step}: ${number.format(item.duration_ms / 1000)} с`, trace);
+  for (const item of result.cycle) element('li', `${steps[item.step] ?? item.step}: ${formatDuration(item.duration_ms)}`, trace);
   element('p', `Модель анализа: ${analysis.model}. Ответ: ${analysis.response_id}.`, root);
 }
