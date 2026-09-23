@@ -8,6 +8,8 @@ from threading import Thread
 import unittest
 
 from backend.server import MAX_BODY, create_server
+from backend.openai_analysis import OpenAIAnalyzer
+from backend.tests.test_analysis import sample
 from backend.service import ForecastService
 from backend.tests.test_service import request, weather, write_history
 
@@ -18,7 +20,7 @@ class ServerTests(unittest.TestCase):
         cls.temp = TemporaryDirectory()
         directory = Path(cls.temp.name)
         write_history(directory)
-        cls.server = create_server(("127.0.0.1", 0), ForecastService(directory))
+        cls.server = create_server(("127.0.0.1", 0), ForecastService(directory), analyzer=OpenAIAnalyzer(api_key=""))
         cls.thread = Thread(target=cls.server.serve_forever, daemon=True)
         cls.thread.start()
 
@@ -87,3 +89,10 @@ class ServerTests(unittest.TestCase):
                 status, _, response = self.call("POST", "/api/forecasts", body, headers)
                 self.assertEqual(status, expected)
                 self.assertIn("error", response)
+
+    def test_analysis_errors_over_http(self):
+        for path, body in (("/api/analysis/weather", {"weather": sample()}),
+                           ("/api/agent/forecasts", {**request(), "weather": weather()})):
+            status, _, result = self.call("POST", path, json.dumps(body), {"Content-Type": "application/json"})
+            self.assertEqual(status, 503)
+            self.assertEqual(result["error"]["code"], "OPENAI_NOT_CONFIGURED")

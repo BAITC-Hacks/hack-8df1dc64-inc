@@ -1,4 +1,4 @@
-# Backend: этапы B1–B3
+# Backend: этапы B1–B4
 
 Проверка входов, расчёт по истории двух ВЭС и HTTP API. Требуется **Python 3.11+**;
 сторонние зависимости и ключи API для B1–B3 не нужны. Используется стандартная библиотека.
@@ -117,14 +117,52 @@ python -m backend.manual_history --as-of 2026-01-15T19:00:00Z --timestamp-role e
 
 Для Linux/macOS переменные задаются через `export WEATHER_ARCHIVE_DIR=/path/to/archive`.
 `UI_ORIGINS` задаёт CORS-адреса через запятую; по умолчанию localhost:3000 и 127.0.0.1:3000.
-`.env` автоматически не читается. `OPENAI_API_KEY` понадобится для следующего агентного этапа.
+Сервер и CLI анализа читают `.env` из корня клона. Переменные окружения имеют приоритет;
+после замены ключа перезапустите сервер. Файл `.env` исключён из Git.
+
+## B4: реальный анализ OpenAI
+
+В локальном `.env` задайте `OPENAI_API_KEY` (значение не публикуйте); необязательная
+`OPENAI_MODEL` по умолчанию `gpt-4o-mini`. Используется официальный Responses API,
+структурированный JSON-ответ и `store:false`. Один запрос — один вызов, тайм-аут 45 секунд;
+автоматических повторных платных вызовов нет. Код использует стандартную библиотеку Python.
+
+Пример пользователя сохранён в `backend/examples/open_meteo_user_sample.json` без ключа.
+Команды из корня клона:
+
+```text
+python -m backend.analyze_weather backend/examples/open_meteo_user_sample.json --validate-only
+python -m backend.analyze_weather backend/examples/open_meteo_user_sample.json
+```
+
+Первая команда только проверяет данные и вычисляет числовую сводку. Вторая реально отправляет
+сводку в OpenAI и возвращает `analysis`: ID ответа, модель, объяснение, риски и рекомендацию.
+При отсутствии ключа, отказе API или неверном ответе возвращается ошибка, CLI завершается с 2.
+В `test.sh` платных вызовов нет: транспортные ошибки проверяются изолированно на тестовых
+ответах; реальные успешные вызовы проверены отдельно, см. [отчёт B4](b4-verification.md).
+
+После `python -m backend.server` в другом терминале PowerShell:
+
+```powershell
+$weather = Get-Content backend/examples/open_meteo_user_sample.json -Raw -Encoding utf8 | ConvertFrom-Json
+$body = @{weather=$weather} | ConvertTo-Json -Depth 20 -Compress
+Invoke-RestMethod http://127.0.0.1:8000/api/analysis/weather -Method Post -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes($body))
+```
+
+`POST /api/agent/forecasts` принимает запрос B3 и выполняет расчёт, затем анализ OpenAI.
+Возвращает `{forecast, analysis}`. Числа прогноза LLM не меняет; рекомендации остаются
+пояснениями. Для повторного расчёта обновите архив и повторите запрос. Погодный пример
+без `issued_at`/`available_at` не принимается как архив B1. Детали — в контрактах B4.
+
+Реализация следует [Responses API](https://developers.openai.com/api/docs/guides/text) и
+[Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs).
 
 ## Граница готовности
 
 B1 проверяет предоставленные метаданные, но не подтверждает их подлинность. Погодный адаптер
 должен обосновать историческую доступность выбранного выпуска.
-История и расчёт B2/API B3 подключены. Автономный сбор архивной погоды, OpenAI-оркестрация,
-прогон февраля и подключение UI остаются следующими этапами. Февральских фактических
+История, расчёт B2/API B3 и шаг анализа OpenAI B4 подключены. Автономный сбор архивной погоды,
+полный агентный цикл, прогон февраля и подключение UI остаются следующими этапами. Февральских фактических
 мощностей пока нет; качество модели не измерено. Высота исторического ветра и время
 доступности телеметрии неизвестны. Тесты проверяют код и совместимость Data/Backend/HTTP,
 но не доказывают точность прогноза или завершение агентного сценария.

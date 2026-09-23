@@ -6,12 +6,16 @@ import logging
 import os
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
+from backend.agent import AgentService
+from backend.config import load_env
+from backend.openai_analysis import AnalysisError
 from backend.service import ForecastService, strict_json
 from backend.validation import ForecastValidationError
 
 MAX_BODY = 1024 * 1024
 DEFAULT_ORIGINS = ("http://127.0.0.1:3000", "http://localhost:3000")
-ROUTES = {"/api/health": "GET", "/api/history/summary": "POST", "/api/forecasts": "POST"}
+ROUTES = {"/api/health": "GET", "/api/history/summary": "POST", "/api/forecasts": "POST",
+          "/api/analysis/weather": "POST", "/api/agent/forecasts": "POST"}
 
 
 class HTTPError(Exception):
@@ -20,8 +24,9 @@ class HTTPError(Exception):
         self.body = {"error": {"code": code, "field": field, "message": message}}
 
 
-def create_server(address=("127.0.0.1", 8000), service=None, origins=DEFAULT_ORIGINS):
+def create_server(address=("127.0.0.1", 8000), service=None, origins=DEFAULT_ORIGINS, analyzer=None):
     service = service if service is not None else ForecastService(weather_archive_dir=os.getenv("WEATHER_ARCHIVE_DIR"))
+    agent = AgentService(service, analyzer)
     allowed_origins = frozenset(origins)
 
     class Handler(BaseHTTPRequestHandler):
@@ -81,6 +86,10 @@ def create_server(address=("127.0.0.1", 8000), service=None, origins=DEFAULT_ORI
                     result = {"status": "ok", "service": "wind-forecast-backend"}
                 elif self.path == "/api/history/summary":
                     result = service.history_summary(self.body())
+                elif self.path == "/api/analysis/weather":
+                    result = agent.weather_analysis(self.body())
+                elif self.path == "/api/agent/forecasts":
+                    result = agent.forecast(self.body())
                 else:
                     result = service.forecast(self.body())
                 self.respond(200, result)
@@ -89,6 +98,8 @@ def create_server(address=("127.0.0.1", 8000), service=None, origins=DEFAULT_ORI
             except ForecastValidationError as exc:
                 status = 503 if exc.code in ("HISTORY_UNAVAILABLE", "WEATHER_UNAVAILABLE") else 422
                 self.respond(status, {"error": exc.as_dict()})
+            except AnalysisError as exc:
+                self.respond(exc.status, {"error": exc.as_dict()})
             except (BrokenPipeError, ConnectionResetError):
                 logging.info("Client disconnected")
             except Exception:
@@ -105,6 +116,7 @@ def main():
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", default=8000, type=int)
     args = parser.parse_args()
+    load_env()
     origins = tuple(value.strip() for value in os.getenv("UI_ORIGINS", ",".join(DEFAULT_ORIGINS)).split(",") if value.strip())
     logging.basicConfig(level=logging.INFO)
     with create_server((args.host, args.port), origins=origins) as server:

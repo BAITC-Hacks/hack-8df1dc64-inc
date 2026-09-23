@@ -177,3 +177,29 @@ NaN/inf, отрицательный ветер или мощность вне [0
 
 Все выходные даты — ISO 8601 UTC с суффиксом Z. Backend проверяет поля и порядок времени
 архива, но подлинность источника требует отдельного подтверждения.
+
+## B4 — исходная погода для анализа
+
+Эталон формата — присланный пользователем ответ Open-Meteo за 25–26 января 2026.
+Принимается `[location1, location2]` либо его однократная оболочка `[[location1, location2]]`.
+Порядок соответствует `turbine_1`, `turbine_2`; при наличии `location_id` он равен 0/1.
+Поля location: `latitude`, `longitude`, `generationtime_ms`, `utc_offset_seconds`,
+`timezone`, `timezone_abbreviation`, `elevation`, `hourly_units`, `hourly`, необязательный
+`location_id`. Числа конечные, координаты допустимые, offset целый в пределах ±14 часов.
+`hourly_units`: `time:iso8601`, `temperature_2m:°C`, `wind_speed_80m/100m/120m:m/s`.
+`hourly` содержит соответствующие массивы и `time` с 24–48 последовательными часами
+`YYYY-MM-DDTHH:MM`; длины одинаковы, времена двух турбин совпадают после перевода в UTC
+через `utc_offset_seconds`. Отрицательная скорость, null, NaN/inf, дубликаты и пропуски — ошибка.
+Смысл часовой метки не переопределяется как конец интервала B1.
+
+`input_summary`: `{kind:open_meteo_weather, input_sha256, historical_availability_verified:false,
+locations, warnings}`. Location: `{turbine_id, latitude, longitude, hours, first_time, last_time,
+temperature_c:{min,max,mean}, wind_by_height:{80,100,120:{min,max,mean}}, max_hourly_wind_change_ms}`.
+Одинаковые координаты отмечаются `SHARED_WEATHER_GRID`; обязательное предупреждение
+`WEATHER_PROVENANCE_UNVERIFIED` сообщает об отсутствии времени выпуска и публикации.
+Все эти предупреждения вычисляет backend; LLM не может убрать их из ответа.
+
+Этот формат годится для анализа погоды, но не является `WeatherBatch` B1. `generationtime_ms`
+— не время выпуска или публикации. Нельзя выдумывать `issued_at`/`available_at` или считать
+пример доказательством доступности прогноза в прошлом. База нормализации мощности и высота
+исторических измерений остаются неизвестными.

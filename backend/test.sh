@@ -21,4 +21,6 @@ if ! "$python_command" -c 'import sys; sys.exit(sys.version_info < (3, 11))'; th
   exit 1
 fi
 
+# B1-B4: validation, calculation, HTTP, Open-Meteo input and provider errors.
+# Offline gate: real paid OpenAI checks are explicit via backend.analyze_weather.
 "$python_command" -m unittest discover -s backend/tests -t . -v
