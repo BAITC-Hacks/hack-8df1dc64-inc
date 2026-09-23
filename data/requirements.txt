@@ -1,0 +1,2 @@
+# GRIB decoding for NOAA archive downloads. Bundled JSON/history need only Python.
+eccodes==2.48.0
