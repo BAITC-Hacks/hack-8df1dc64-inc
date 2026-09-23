@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light">
-    <title>Ветропрогноз — почасовая выработка ВЭС</title>
+    <title>Ветропрогноз · почасовая выработка ВЭС</title>
     <link rel="stylesheet" href="./styles.css">
-    <script type="module" src="./app.mjs"></script>
+    <script type="module" src="./boot.mjs"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">К содержимому</a>
     <header class="topbar">
-      <a class="brand" href="./" aria-label="Ветропрогноз — главная"><span class="brand-mark" aria-hidden="true">↗</span><span>ветропрогноз<span class="brand-caption">WIND ENERGY INTELLIGENCE</span></span></a>
+      <a class="brand" href="./" aria-label="Ветропрогноз, главная"><span>ветропрогноз<span class="brand-caption">ВЕТРОЭНЕРГЕТИКА / РАСЧЁТЫ</span></span></a>
       <span class="workspace-label">Рабочее пространство ВЭС</span>
-      <span class="status"><span class="status-dot" aria-hidden="true"></span>Ожидает подключения</span>
+      <span class="status">Расчёт не подключён</span>
     </header>
     <main id="main">
       <div class="page-heading">
-        <div><p class="eyebrow">АНАЛИТИКА ВЕТРОЭНЕРГЕТИКИ</p><h1>От ветра к выработке.</h1><p class="lead">Почасовой прогноз станции на следующие 24–48 часов.</p></div>
-        <div class="period-tag"><span>ТЕСТОВЫЙ ПЕРИОД</span><strong>01 — 28 февраля 2026</strong></div>
+        <div><p class="eyebrow">РАБОЧИЙ ЭКРАН / 01</p><h1>Почасовая выработка ВЭС</h1><p class="lead">Исторический запуск прогноза на 24–48 часов.</p></div>
+        <div class="period-tag"><span>ТЕСТОВЫЙ ПЕРИОД</span><strong>01–28 февраля 2026</strong></div>
       </div>
       <section class="station-card" aria-labelledby="station-title">
         <div class="station-description">
@@ -31,7 +31,6 @@
         <div class="station-art" aria-hidden="true">
           <svg viewBox="0 0 430 250" fill="none">
             <path d="M10 185C95 143 175 210 250 166s133-45 180-21M0 213c100-45 155 10 245-15s125-32 185-16" stroke="currentColor" opacity=".22"/>
-            <circle cx="285" cy="100" r="80" stroke="currentColor" stroke-dasharray="3 7" opacity=".22"/>
             <path d="m149 202 7-116 7 116m-7-116L111 59l40 18 5 9 3-61 5 48-8 13 49 23-45-13-4-10" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
             <path d="m277 213 8-113 8 113m-8-113-49-30 43 20 6 10 3-66 5 52-8 14 53 25-48-14-5-11" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
             <circle cx="156" cy="86" r="4" fill="currentColor"/><circle cx="285" cy="100" r="4" fill="currentColor"/>
@@ -43,7 +42,7 @@
         <section class="panel settings" aria-labelledby="settings-title">
           <div class="section-heading"><span class="step">01</span><h2 id="settings-title">Параметры прогноза</h2></div>
           <p class="section-description">Настройте исторический запуск для всей станции или отдельной турбины.</p>
-          <form id="forecast-form" novalidate>
+          <form id="forecast-form" novalidate inert>
             <fieldset class="turbine-fieldset">
               <legend class="field-label">Турбины для прогноза</legend>
               <div class="turbine-options">
@@ -65,16 +64,20 @@
               <label><input type="radio" name="horizon" value="48" aria-describedby="horizon-error"><span><strong>48 часов</strong><small>На двое суток</small></span></label>
             </div><p id="horizon-error" class="form-error" role="alert" hidden></p></fieldset>
             <div class="draft-controls"><p id="storage-status" class="hint" role="status"></p><button type="button" id="reset-selection" class="reset-button">Сбросить параметры</button></div>
-            <button class="run-button" type="submit" disabled aria-describedby="connection-hint">Сформировать прогноз <span aria-hidden="true">↗</span></button>
+            <button class="run-button" type="submit" disabled aria-describedby="connection-hint">Сформировать прогноз</button>
             <p class="hint connection-hint" id="connection-hint">Запуск станет доступен после подключения сервиса прогнозирования.</p>
           </form>
           <noscript><p class="form-error">Включите JavaScript, чтобы выбирать параметры прогноза.</p></noscript>
-          <aside class="method-note"><span aria-hidden="true">◷</span><div><strong>Прогноз из прошлого</strong><p>Для каждой даты нужны архивные прогнозы погоды, доступные на момент запуска.</p></div></aside>
+          <aside class="method-note"><strong>Прогноз из прошлого</strong><p>Для каждой даты нужны архивные прогнозы погоды, доступные на момент запуска.</p></aside>
         </section>
         <section class="panel results" aria-labelledby="results-title">
           <div class="results-heading"><div class="section-heading"><span class="step">02</span><h2 id="results-title">Почасовая выработка</h2></div><span class="neutral-tag">Нет расчёта</span></div>
-          <div class="selection-preview">
+          <div class="selection-preview" id="selection-region" aria-busy="false">
             <h3>Выбранные параметры</h3>
+            <div id="selection-loading" class="skeleton" role="status" hidden>
+              <span class="visually-hidden">Загружаем форму и восстанавливаем параметры.</span>
+              <div aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            </div>
             <dl id="selection-summary" hidden>
               <div><dt>Дата выпуска</dt><dd id="preview-date"></dd></div>
               <div><dt>Момент запуска</dt><dd id="preview-time"></dd></div>
@@ -85,18 +88,18 @@
             <p id="selection-announcement" class="visually-hidden" role="status" aria-live="polite"></p>
           </div>
           <div class="empty-state">
-            <div class="chart-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><path d="M13 12v40h41M22 40V29m12 11V19m12 21V25" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+            <p class="empty-index" aria-hidden="true">РАСЧЁТ / ОЖИДАНИЕ</p>
             <h3>Прогноз ещё не сформирован</h3><p>Здесь появится почасовая выработка после выполнения расчёта сервисом прогнозирования.</p>
             <span class="empty-caption">Выберите параметры прогноза, чтобы подготовить запуск</span>
           </div>
-          <div class="result-footer"><span class="small-dot" aria-hidden="true"></span>Результаты расчёта пока не получены</div>
+          <div class="result-footer">Результаты расчёта пока не получены</div>
         </section>
       </div>
       <section class="process" aria-labelledby="process-title">
         <div class="process-intro"><p class="eyebrow">КАК УСТРОЕН ПРОГНОЗ</p><h2 id="process-title">Полный цикл агента</h2><p>Этапы по техническому заданию</p></div>
         <ol><li><span>01</span><strong>Архив погоды</strong><small>Данные на дату запуска</small></li><li><span>02</span><strong>Подготовка</strong><small>История работы ВЭС</small></li><li><span>03</span><strong>Прогноз</strong><small>Выработка по часам</small></li><li><span>04</span><strong>Анализ и пересчёт</strong><small>При обновлении данных</small></li></ol>
       </section>
-      <footer class="page-footer"><span>ВЕТРОПРОГНОЗ <span aria-hidden="true">/</span> HACKALEM 2026</span><span>Историческое воспроизведение · Февраль 2026</span></footer>
+      <footer class="page-footer"><span>ВЕТРОПРОГНОЗ / HACKALEM 2026</span><nav aria-label="Документы сайта"><a href="./terms.html">Условия использования</a><a href="./privacy.html">Конфиденциальность</a></nav></footer>
     </main>
   </body>
 </html>

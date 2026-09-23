@@ -52,13 +52,18 @@ test('static server serves the page and every linked asset, without API routes',
   assert.match(html, /name="turbine" value="turbine_2"/);
   assert.match(html, /id="reset-selection"/);
   assert.match(html, /id="preview-time"/);
+  assert.match(html, /id="selection-loading"/);
+  assert.match(html, /src="\.\/boot.mjs"/);
   assert.match(html, /type="submit" disabled/);
   assert.match(html, /Прогноз ещё не сформирован/);
-  for (const [path, mime] of [['styles.css', 'text/css'], ['app.mjs', 'text/javascript'], ['parameters.mjs', 'text/javascript'], ['draft.mjs', 'text/javascript']]) {
+  for (const [path, mime] of [['styles.css', 'text/css'], ['boot.mjs', 'text/javascript'], ['initialization.mjs', 'text/javascript'], ['app.mjs', 'text/javascript'], ['parameters.mjs', 'text/javascript'], ['draft.mjs', 'text/javascript'], ['terms.html', 'text/html'], ['privacy.html', 'text/html']]) {
     const result = await fetch(`${base}/${path}`);
     assert.equal(result.status, 200, path);
     assert.ok(result.headers.get('content-type').startsWith(mime), path);
-    assert.ok((await result.text()).length > 0, path);
+    const content = await result.text();
+    assert.ok(content.length > 0, path);
+    if (path === 'terms.html') assert.match(content, /<h1>Условия использования<\/h1>/);
+    if (path === 'privacy.html') assert.match(content, /wind-forecast\.selection\.v1/);
   }
   assert.equal((await fetch(`${base}/api/forecast`, { method: 'POST' })).status, 404);
   assert.equal((await fetch(`${base}/README.md`)).status, 404);

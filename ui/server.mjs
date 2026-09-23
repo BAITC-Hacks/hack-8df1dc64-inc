@@ -10,6 +10,10 @@ const assets = new Map([
   ['/app.mjs', ['app.mjs', 'text/javascript; charset=utf-8']],
   ['/parameters.mjs', ['parameters.mjs', 'text/javascript; charset=utf-8']],
   ['/draft.mjs', ['draft.mjs', 'text/javascript; charset=utf-8']],
+  ['/boot.mjs', ['boot.mjs', 'text/javascript; charset=utf-8']],
+  ['/initialization.mjs', ['initialization.mjs', 'text/javascript; charset=utf-8']],
+  ['/terms.html', ['terms.html', 'text/html; charset=utf-8']],
+  ['/privacy.html', ['privacy.html', 'text/html; charset=utf-8']],
 ]);
 
 export function createUiServer() {
