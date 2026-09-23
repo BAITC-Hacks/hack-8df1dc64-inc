@@ -1,0 +1,104 @@
+{
+    "checked_at":  "2026-09-23T12:48:17.358Z",
+    "code_commit":  "d56cc8e70d93dbf80d5325cb22e5eb10e62eff69",
+    "included_commits":  {
+                             "backend":  "9d7f445",
+                             "data":  "8de4586",
+                             "ui":  "e031b54"
+                         },
+    "clean_clone":  true,
+    "fresh_python_environment":  true,
+    "dependencies_command":  "python -m pip install -r data/requirements.txt",
+    "tests":  {
+                  "backend":  80,
+                  "data":  41,
+                  "skipped":  0,
+                  "failed":  0,
+                  "ui":  30
+              },
+    "february":  {
+                     "hours_per_turbine":  672,
+                     "csv_sha256":  "a1bc07ce72adc3330f3b38f1eaca0aec95fc7a43248566ab2f1a3580c537b9e0",
+                     "runs":  28,
+                     "forecast_points":  2688,
+                     "matches_published_csv":  true,
+                     "csv_rows":  1344
+                 },
+    "live_cases":  [
+                       {
+                           "request":  {
+                                           "as_of":  "2026-01-31T19:00:00Z",
+                                           "horizon_hours":  24,
+                                           "turbine_ids":  [
+                                                               "turbine_1",
+                                                               "turbine_2"
+                                                           ],
+                                           "timestamp_role":  "end",
+                                           "refresh_weather":  false
+                                       },
+                           "forecast_points":  48,
+                           "weather_source":  {
+                                                  "mode":  "bundled",
+                                                  "provenance_sha256":  "133d96ceb8c42c8bd87afdf78d76194d932a78154291086889573281c3f8a20a"
+                                              },
+                           "analysis_model":  "gpt-4o-mini-2024-07-18",
+                           "response_id":  "resp_032cdce66a86de7c016ab3caa972b487d2b64475e36f519f09",
+                           "cycle":  [
+                                         {
+                                             "step":  "acquire_weather",
+                                             "duration_ms":  14.99
+                                         },
+                                         {
+                                             "step":  "prepare_and_forecast",
+                                             "duration_ms":  21863.88
+                                         },
+                                         {
+                                             "step":  "analyze",
+                                             "duration_ms":  3685.61
+                                         }
+                                     ]
+                       },
+                       {
+                           "request":  {
+                                           "as_of":  "2026-02-14T19:00:00Z",
+                                           "horizon_hours":  48,
+                                           "turbine_ids":  [
+                                                               "turbine_2"
+                                                           ],
+                                           "timestamp_role":  "end",
+                                           "refresh_weather":  true
+                                       },
+                           "forecast_points":  48,
+                           "weather_source":  {
+                                                  "mode":  "downloaded",
+                                                  "provenance_sha256":  "5492cb952318fe052d2265654ca39aa1256f996f8df6ba4de552ddfa29780213"
+                                              },
+                           "analysis_model":  "gpt-4o-mini-2024-07-18",
+                           "response_id":  "resp_08521bf5ff3a637a016ab3cb107fa487d29862ca8ee7ed1f9c",
+                           "cycle":  [
+                                         {
+                                             "step":  "refresh_weather",
+                                             "duration_ms":  85957.4
+                                         },
+                                         {
+                                             "step":  "prepare_and_forecast",
+                                             "duration_ms":  13965.19
+                                         },
+                                         {
+                                             "step":  "analyze",
+                                             "duration_ms":  3385.62
+                                         }
+                                     ]
+                       }
+                   ],
+    "local_smoke":  {
+                        "temperature_correction_http_points":  24,
+                        "backend_health":  "ok",
+                        "merged_chart_and_duration_served":  true,
+                        "ui":  "Vento"
+                    },
+    "limitations":  [
+                        "Docker build/run not verified: Docker Engine unavailable.",
+                        "Visual browser QA not verified: computer-use returned no browsers."
+                    ]
+}

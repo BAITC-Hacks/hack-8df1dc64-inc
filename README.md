@@ -86,6 +86,8 @@ node ui/server.mjs
 
 ## Проверки
 
+Финальная объединённая версия проверена из чистого клона с новым Python-окружением: **80 backend + 41 data + 30 UI тестов**, два реальных HTTP-запроса с OpenAI (второй с новой загрузкой NOAA) и полный повтор февраля с побайтово одинаковым CSV; подробности — [отчёт интеграции](backend/reports/final-integration.json).
+
 ```sh
 python -m unittest discover -s backend/tests -t . -v
 python -m unittest discover -s data/tests -v
