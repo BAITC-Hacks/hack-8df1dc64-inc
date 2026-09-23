@@ -1,0 +1,1609 @@
+{
+  "schema": "noaa-gfs-provenance-v1",
+  "as_of": "2026-02-21T19:00:00Z",
+  "issued_at": "2026-02-21T12:00:00Z",
+  "available_at": "2026-02-21T15:47:24Z",
+  "horizon_hours": 48,
+  "retrieved_at": "2026-09-23T10:50:57.262928Z",
+  "grid_degrees": 0.5,
+  "wind_height_m": 100,
+  "temperature_height_m": 2,
+  "coordinates": {
+    "turbine_1": [
+      43.64515,
+      78.535604
+    ],
+    "turbine_2": [
+      43.643198,
+      78.538828
+    ]
+  },
+  "spatial_method": "nearest grid node",
+  "temporal_method": "linear U/V/T at hour boundaries; mean of boundary speed/temperature",
+  "samples": [
+    {
+      "step": 6,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": 2.356455078125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 2.356455078125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 0.91822265625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 0.91822265625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 3.4756250000000364,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 3.4756250000000364,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f006.idx",
+          "last_modified": "2026-02-21T15:34:02Z",
+          "etag": "\"31232844bb730873b496e1e54bb5dc48\"",
+          "sha256": "e56579dabf136c1ca1a8f466f31fde02769c99769d1aef1799b30835b195562f"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f006",
+          "field": "u",
+          "byte_range": [
+            146452857,
+            146741227
+          ],
+          "last_modified": "2026-02-21T15:33:58Z",
+          "etag": "\"7cdaadfc74f4efc33e0f49ae63879c51\"",
+          "sha256": "b1967efa22762699ba3f9653336ce686a48a986b45645cf0f4a309673e8142dd"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f006",
+          "field": "v",
+          "byte_range": [
+            146741228,
+            147029523
+          ],
+          "last_modified": "2026-02-21T15:33:58Z",
+          "etag": "\"7cdaadfc74f4efc33e0f49ae63879c51\"",
+          "sha256": "02da5529858b412fbf35fc0a795cf4560c253dfd75c61c2c2bd2a30e83c02b89"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f006",
+          "field": "t",
+          "byte_range": [
+            122804329,
+            123069561
+          ],
+          "last_modified": "2026-02-21T15:33:58Z",
+          "etag": "\"7cdaadfc74f4efc33e0f49ae63879c51\"",
+          "sha256": "49dc1a686535f59c17828ec7762581ddfee99e29cf684722813687b5f5dc7a00"
+        }
+      ]
+    },
+    {
+      "step": 9,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": 0.334296875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 0.334296875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 1.1535791015625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 1.1535791015625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 1.319257812500041,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 1.319257812500041,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f009.idx",
+          "last_modified": "2026-02-21T15:35:07Z",
+          "etag": "\"39ff379ab2cfab663b36dc219329aff7\"",
+          "sha256": "80bd453c658b649cb0db1fcc48e5c0e0527d248e80e49b9ebc3ef40655df0b2c"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f009",
+          "field": "u",
+          "byte_range": [
+            146069831,
+            146357337
+          ],
+          "last_modified": "2026-02-21T15:35:03Z",
+          "etag": "\"abd96c7d6c4b1ee8b886a0c8b90485f6\"",
+          "sha256": "ce4967e034e2d7164b09cfdf4cc50718028bf696930ff22b187f489f3d20d777"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f009",
+          "field": "v",
+          "byte_range": [
+            146357338,
+            146644738
+          ],
+          "last_modified": "2026-02-21T15:35:03Z",
+          "etag": "\"abd96c7d6c4b1ee8b886a0c8b90485f6\"",
+          "sha256": "80d44b83b3aa136a530505b81e6141d2f04f65badc21f7e5657f9d73848f0bff"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f009",
+          "field": "t",
+          "byte_range": [
+            123000877,
+            123265198
+          ],
+          "last_modified": "2026-02-21T15:35:03Z",
+          "etag": "\"abd96c7d6c4b1ee8b886a0c8b90485f6\"",
+          "sha256": "5547f819b18b8b4e0817037ceb9108ea26fac131936fb47185cd9bb0d0af29c5"
+        }
+      ]
+    },
+    {
+      "step": 12,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": -1.29072509765625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -1.29072509765625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 1.407744140625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 1.407744140625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 1.1878906250000227,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 1.1878906250000227,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f012.idx",
+          "last_modified": "2026-02-21T15:36:14Z",
+          "etag": "\"8a0bf35d3260d14d2562b8f5c848a4a9\"",
+          "sha256": "c9fd77f424212488776c6e3a564f83e4358a5d3b75f4dc08047ada8cc12d60bf"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f012",
+          "field": "u",
+          "byte_range": [
+            145862956,
+            146149937
+          ],
+          "last_modified": "2026-02-21T15:36:09Z",
+          "etag": "\"83f4c174a813cc1a8545335ce93d6a5e\"",
+          "sha256": "22c4f8d04177cd011bc170a7076c72e209b204f3dce0f36285a7d9fa07d07271"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f012",
+          "field": "v",
+          "byte_range": [
+            146149938,
+            146436817
+          ],
+          "last_modified": "2026-02-21T15:36:09Z",
+          "etag": "\"83f4c174a813cc1a8545335ce93d6a5e\"",
+          "sha256": "2d00840ad88306eba316854f136db493cef8fffba64738195cc840966c16633e"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f012",
+          "field": "t",
+          "byte_range": [
+            122199029,
+            122462182
+          ],
+          "last_modified": "2026-02-21T15:36:09Z",
+          "etag": "\"83f4c174a813cc1a8545335ce93d6a5e\"",
+          "sha256": "a633fc9d0fa81b110a7050b3cb5530fbb283edf3662cd7466551b6a1672171de"
+        }
+      ]
+    },
+    {
+      "step": 15,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": -2.81412109375,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -2.81412109375,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 0.99897216796875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 0.99897216796875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 3.0451953125000273,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 3.0451953125000273,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f015.idx",
+          "last_modified": "2026-02-21T15:36:14Z",
+          "etag": "\"19acc931bd5224a7076b6918ddb23da2\"",
+          "sha256": "e5d166ff3fabb1af5e92b19c7a81e4efe81760fcedf10ec06b50d680f3450076"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f015",
+          "field": "u",
+          "byte_range": [
+            145767449,
+            146053501
+          ],
+          "last_modified": "2026-02-21T15:36:10Z",
+          "etag": "\"fd23f52cee18ef886b0befce7bf790bf\"",
+          "sha256": "228f12324334b6c2d45be8d4ae9de67403ad14f93dad78d50392ea11a6901a16"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f015",
+          "field": "v",
+          "byte_range": [
+            146053502,
+            146340052
+          ],
+          "last_modified": "2026-02-21T15:36:10Z",
+          "etag": "\"fd23f52cee18ef886b0befce7bf790bf\"",
+          "sha256": "89b0ff0e24885ade0c702912848b3ab955f8e7f77a83d7c42fabda751c2f7947"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f015",
+          "field": "t",
+          "byte_range": [
+            122488993,
+            122751990
+          ],
+          "last_modified": "2026-02-21T15:36:10Z",
+          "etag": "\"fd23f52cee18ef886b0befce7bf790bf\"",
+          "sha256": "4d2bda0dc61f05a73c753350bae86190d502e0e8ab5075debaffc23365d9578c"
+        }
+      ]
+    },
+    {
+      "step": 18,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": -2.88781494140625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -2.88781494140625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 0.27050048828125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 0.27050048828125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 7.2299414062500205,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 7.2299414062500205,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f018.idx",
+          "last_modified": "2026-02-21T15:37:21Z",
+          "etag": "\"bb8d510d73a5e31eee9a865ce6b82887\"",
+          "sha256": "9d64f5b8ac9b6fe1c04496f33d47ec5a5f0fe8facb62055ed09058dafcf74958"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f018",
+          "field": "u",
+          "byte_range": [
+            146108742,
+            146394525
+          ],
+          "last_modified": "2026-02-21T15:37:17Z",
+          "etag": "\"2cdae8181405b0619954e720fa30042a\"",
+          "sha256": "33c3c512f0502d5f6ccf623ca61a60107e028c49b5a889cbf6250adb345f3282"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f018",
+          "field": "v",
+          "byte_range": [
+            146394526,
+            146681550
+          ],
+          "last_modified": "2026-02-21T15:37:17Z",
+          "etag": "\"2cdae8181405b0619954e720fa30042a\"",
+          "sha256": "4894a2581fb74e7c0468102d17fee99a6de9dcc12f564a2ecec51545100ee3c5"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f018",
+          "field": "t",
+          "byte_range": [
+            122381428,
+            122644402
+          ],
+          "last_modified": "2026-02-21T15:37:17Z",
+          "etag": "\"2cdae8181405b0619954e720fa30042a\"",
+          "sha256": "200b264a9d1631eeac1766cf1378d1c4251f79ca0ecd70c9c1672abb6f65d12d"
+        }
+      ]
+    },
+    {
+      "step": 21,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": -3.5171435546875003,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -3.5171435546875003,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 1.553642578125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 1.553642578125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 8.37859375000005,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 8.37859375000005,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f021.idx",
+          "last_modified": "2026-02-21T15:38:20Z",
+          "etag": "\"1f72cfe797b98fa7490445185143aab8\"",
+          "sha256": "840a9ea6cd67ea2630adb8c8342fd6485fa52a548fccf9a6e0a7593efe9aa2f6"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f021",
+          "field": "u",
+          "byte_range": [
+            145554371,
+            145840294
+          ],
+          "last_modified": "2026-02-21T15:38:16Z",
+          "etag": "\"995e04931bba02057057357239961fc1\"",
+          "sha256": "8d015ea7c45ac5664731645a46863bebd1410f83070c15305954f43357707343"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f021",
+          "field": "v",
+          "byte_range": [
+            145840295,
+            146125956
+          ],
+          "last_modified": "2026-02-21T15:38:16Z",
+          "etag": "\"995e04931bba02057057357239961fc1\"",
+          "sha256": "757d1b2e98d1cd89e7ecd689135aed856f9386ed977a0c1001023c3948c52788"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f021",
+          "field": "t",
+          "byte_range": [
+            122194942,
+            122458321
+          ],
+          "last_modified": "2026-02-21T15:38:16Z",
+          "etag": "\"995e04931bba02057057357239961fc1\"",
+          "sha256": "982be15eccd684cdec5af98fec5965c8db86cf1c9de58755659f8ef32393ffe6"
+        }
+      ]
+    },
+    {
+      "step": 24,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": -3.3896923828125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -3.3896923828125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 1.968076171875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 1.968076171875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 6.480410156250002,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 6.480410156250002,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f024.idx",
+          "last_modified": "2026-02-21T15:39:26Z",
+          "etag": "\"2bf1079efdbcfa020b847455b598a580\"",
+          "sha256": "90ae0a02f227778bf14cf60a3e5c5c9524bd5463004ebc0371067f5b6aface62"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f024",
+          "field": "u",
+          "byte_range": [
+            146575384,
+            146861636
+          ],
+          "last_modified": "2026-02-21T15:39:22Z",
+          "etag": "\"311ceac9a98848c4b9f359b2a8d515f1\"",
+          "sha256": "619798baff4c1a3608f84bdbae0f007d41da0cfc46c707e6c45c54b2fcec3c65"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f024",
+          "field": "v",
+          "byte_range": [
+            146861637,
+            147147346
+          ],
+          "last_modified": "2026-02-21T15:39:22Z",
+          "etag": "\"311ceac9a98848c4b9f359b2a8d515f1\"",
+          "sha256": "0a2321f6ec44eda1ff5071203783bf64d787e21bdbd6e33a62aa817b92809ed3"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f024",
+          "field": "t",
+          "byte_range": [
+            122791653,
+            123056448
+          ],
+          "last_modified": "2026-02-21T15:39:22Z",
+          "etag": "\"311ceac9a98848c4b9f359b2a8d515f1\"",
+          "sha256": "fc1cd109aa3c323f6937c4a89c7f333e50c66dbaab3cb9bd4bc07cb07053ead8"
+        }
+      ]
+    },
+    {
+      "step": 27,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": -2.3308935546875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -2.3308935546875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 2.9811962890625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 2.9811962890625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 3.860996093750032,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 3.860996093750032,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f027.idx",
+          "last_modified": "2026-02-21T15:40:32Z",
+          "etag": "\"c30cfb44e520285d9d26b49cc4c7a81a\"",
+          "sha256": "1ef8cb32a03b668f6cd748fdf40c0256079ebc72c88ce8f53cc2f54f22e17644"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f027",
+          "field": "u",
+          "byte_range": [
+            146488124,
+            146775236
+          ],
+          "last_modified": "2026-02-21T15:40:28Z",
+          "etag": "\"c7a18f7d6c3c650712de1cd6a33f5641\"",
+          "sha256": "d821ff6404f32e65d9949709a5f4ea36301946530192334637a676816d142770"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f027",
+          "field": "v",
+          "byte_range": [
+            146775237,
+            147061742
+          ],
+          "last_modified": "2026-02-21T15:40:28Z",
+          "etag": "\"c7a18f7d6c3c650712de1cd6a33f5641\"",
+          "sha256": "567966ce8bbecb0994afea529c2df28586d503217f4a448129701366f7f1fed6"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f027",
+          "field": "t",
+          "byte_range": [
+            123026821,
+            123292323
+          ],
+          "last_modified": "2026-02-21T15:40:28Z",
+          "etag": "\"c7a18f7d6c3c650712de1cd6a33f5641\"",
+          "sha256": "ba3dc067d134b226b386c5b43a3e256acb17021cfa1ca8d53148480a3ad92541"
+        }
+      ]
+    },
+    {
+      "step": 30,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": -0.6552783203125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -0.6552783203125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 1.333212890625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 1.333212890625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 3.523300781250043,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 3.523300781250043,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f030.idx",
+          "last_modified": "2026-02-21T15:40:44Z",
+          "etag": "\"8042edb6b939e3dae155633924e95ef1\"",
+          "sha256": "8e90e504d5f2928fb4bf429cf395c1ef74aab35da33e29603e4ebd6308baf9ff"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f030",
+          "field": "u",
+          "byte_range": [
+            146511654,
+            146798961
+          ],
+          "last_modified": "2026-02-21T15:40:39Z",
+          "etag": "\"fb49ccfc8e52df296be52cff92f56329\"",
+          "sha256": "2a14e35fe7a897eb137d94c51e89a8c4145e748a7c6fb1cbc5f521a37a03523e"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f030",
+          "field": "v",
+          "byte_range": [
+            146798962,
+            147086163
+          ],
+          "last_modified": "2026-02-21T15:40:39Z",
+          "etag": "\"fb49ccfc8e52df296be52cff92f56329\"",
+          "sha256": "826f1be96e312317d8ef7052d0918cec1ac4582673a64fa2a208e40106798911"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f030",
+          "field": "t",
+          "byte_range": [
+            122812767,
+            123077784
+          ],
+          "last_modified": "2026-02-21T15:40:39Z",
+          "etag": "\"fb49ccfc8e52df296be52cff92f56329\"",
+          "sha256": "0e474299ea903be31a684cdc5a1bb2d27dc7909a8a63290b4cff64aae8ea3ed8"
+        }
+      ]
+    },
+    {
+      "step": 33,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": -0.3572607421875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -0.3572607421875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 0.21852294921875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 0.21852294921875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 3.333027343750018,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 3.333027343750018,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f033.idx",
+          "last_modified": "2026-02-21T15:41:47Z",
+          "etag": "\"7e56356a29cec299c71a8c552cb1ada1\"",
+          "sha256": "b2f1c636169c86448fc70dc885dea50c39614e9e3538f5befae176a2d230e37b"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f033",
+          "field": "u",
+          "byte_range": [
+            146142905,
+            146430654
+          ],
+          "last_modified": "2026-02-21T15:41:42Z",
+          "etag": "\"51fc95fcb2ee51fdf20cb76fb4327109\"",
+          "sha256": "ac57d371527c270a6d25cd5dc9529cf8f435915066cb8425ede9b483d92d0b73"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f033",
+          "field": "v",
+          "byte_range": [
+            146430655,
+            146717669
+          ],
+          "last_modified": "2026-02-21T15:41:42Z",
+          "etag": "\"51fc95fcb2ee51fdf20cb76fb4327109\"",
+          "sha256": "3144cdcafbf9dcc15d55c95a9e5b6fda1503428c60dc7d9941820fa63d70abc5"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f033",
+          "field": "t",
+          "byte_range": [
+            122907007,
+            123171320
+          ],
+          "last_modified": "2026-02-21T15:41:42Z",
+          "etag": "\"51fc95fcb2ee51fdf20cb76fb4327109\"",
+          "sha256": "59af60b6edaabdd35a4470bc425cc15c00c61a58d2a4dda6db7c30e5d80790dd"
+        }
+      ]
+    },
+    {
+      "step": 36,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": 0.8097363281250001,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 0.8097363281250001,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 0.06140869140625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 0.06140869140625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 2.809179687500034,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 2.809179687500034,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f036.idx",
+          "last_modified": "2026-02-21T15:43:01Z",
+          "etag": "\"57b0c20102d16fce5af676c63e5cec98\"",
+          "sha256": "15851e0543f3600b669ced0c155d9a12c2323907c55db1bb197c0df53361d5fa"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f036",
+          "field": "u",
+          "byte_range": [
+            147196017,
+            147483296
+          ],
+          "last_modified": "2026-02-21T15:42:57Z",
+          "etag": "\"3de9b1b2346303469d5c5e7c64536dfb\"",
+          "sha256": "f32cc4c42c037d5182a18e19cdc5af32562667ec76b8f117cab523abe23e448d"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f036",
+          "field": "v",
+          "byte_range": [
+            147483297,
+            147771382
+          ],
+          "last_modified": "2026-02-21T15:42:57Z",
+          "etag": "\"3de9b1b2346303469d5c5e7c64536dfb\"",
+          "sha256": "c23ca9882fa690f7b25c16e3770e23fb12ed6e35695df12d3372d4a58b4af315"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f036",
+          "field": "t",
+          "byte_range": [
+            123458632,
+            123722235
+          ],
+          "last_modified": "2026-02-21T15:42:57Z",
+          "etag": "\"3de9b1b2346303469d5c5e7c64536dfb\"",
+          "sha256": "0f77c3aeb3b21a1d4d681574b768c5eae704adf6f6d7eb492e30f0a2bdec651a"
+        }
+      ]
+    },
+    {
+      "step": 39,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": 2.84907958984375,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 2.84907958984375,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": -0.276162109375,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -0.276162109375,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 4.669824218750023,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 4.669824218750023,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f039.idx",
+          "last_modified": "2026-02-21T15:42:57Z",
+          "etag": "\"00868e9fdd58fed7d80d83aa2deddfab\"",
+          "sha256": "cc4f40d0cc62b87a922c90a3f4a779126c98afc52b63fda371069f61311e3f87"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f039",
+          "field": "u",
+          "byte_range": [
+            146657810,
+            146944162
+          ],
+          "last_modified": "2026-02-21T15:42:52Z",
+          "etag": "\"74e11c79287aeb03fb82094509603310\"",
+          "sha256": "364fbe0f417f49d01802701dcaf294837b8561692de3a214ba4fadb8fffc3418"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f039",
+          "field": "v",
+          "byte_range": [
+            146944163,
+            147231466
+          ],
+          "last_modified": "2026-02-21T15:42:52Z",
+          "etag": "\"74e11c79287aeb03fb82094509603310\"",
+          "sha256": "0ed5955898873d4c375d130d3db3d733d23e6e450e3d2e959eb96f679a9102ac"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f039",
+          "field": "t",
+          "byte_range": [
+            123466129,
+            123729592
+          ],
+          "last_modified": "2026-02-21T15:42:52Z",
+          "etag": "\"74e11c79287aeb03fb82094509603310\"",
+          "sha256": "c1b30847179c0f5daa3eddaaa537a8b9eb134208c9730d45048d3bf54f455848"
+        }
+      ]
+    },
+    {
+      "step": 42,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": 3.13791259765625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 3.13791259765625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": -1.5851953125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -1.5851953125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 6.658476562500027,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 6.658476562500027,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f042.idx",
+          "last_modified": "2026-02-21T15:44:02Z",
+          "etag": "\"f59f3c945a556f3dce351ae85234dc96\"",
+          "sha256": "515d3541b9a30682740079d45fb9ff1579e9e010b8ee9e1a64848d37bbd9592e"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f042",
+          "field": "u",
+          "byte_range": [
+            146795661,
+            147081929
+          ],
+          "last_modified": "2026-02-21T15:43:58Z",
+          "etag": "\"f4e9e4c2133e0f1bfbb37c76caed6461\"",
+          "sha256": "3d9330592da64cd64555ae9f15c04ab1016961dc7689c279621cddf1c264c0c6"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f042",
+          "field": "v",
+          "byte_range": [
+            147081930,
+            147367969
+          ],
+          "last_modified": "2026-02-21T15:43:58Z",
+          "etag": "\"f4e9e4c2133e0f1bfbb37c76caed6461\"",
+          "sha256": "2405612b1793108443be6d81b0329f12aab0730586b938180dad814b0ef71b65"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f042",
+          "field": "t",
+          "byte_range": [
+            123238740,
+            123501481
+          ],
+          "last_modified": "2026-02-21T15:43:58Z",
+          "etag": "\"f4e9e4c2133e0f1bfbb37c76caed6461\"",
+          "sha256": "1ebc262cefbf3d97100e5f9a9b1ed1bc438e7e3c357c6c806852ed4687643bb0"
+        }
+      ]
+    },
+    {
+      "step": 45,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": 5.8740625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 5.8740625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": -2.27412841796875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -2.27412841796875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 5.2039843750000045,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 5.2039843750000045,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f045.idx",
+          "last_modified": "2026-02-21T15:45:00Z",
+          "etag": "\"c735296460150535210e06ec6957f3b9\"",
+          "sha256": "e9a00fd4d8292aa9d5c9817e20015151b7ab899d5878bb3cb0fb4c77db20c2e4"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f045",
+          "field": "u",
+          "byte_range": [
+            145333549,
+            145619920
+          ],
+          "last_modified": "2026-02-21T15:44:55Z",
+          "etag": "\"6b472d8246689c8d02a34b47a550ba9a\"",
+          "sha256": "1f328f6807348035ba21e9a393fa9d7842c2b4ba336d3d96e3cb3f214f9d8c20"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f045",
+          "field": "v",
+          "byte_range": [
+            145619921,
+            145906958
+          ],
+          "last_modified": "2026-02-21T15:44:55Z",
+          "etag": "\"6b472d8246689c8d02a34b47a550ba9a\"",
+          "sha256": "660abec62493562011caf75deca6e6cf4824f948d3283dcaa5e72727293f26dc"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f045",
+          "field": "t",
+          "byte_range": [
+            122295404,
+            122557968
+          ],
+          "last_modified": "2026-02-21T15:44:55Z",
+          "etag": "\"6b472d8246689c8d02a34b47a550ba9a\"",
+          "sha256": "991621ea307cb0e1068679555d11c2cb4a10d2f3ba6ce591c385f7de138b012a"
+        }
+      ]
+    },
+    {
+      "step": 48,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": 5.9088427734375,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 5.9088427734375,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": -0.44041259765625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -0.44041259765625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": 2.1829101562500455,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 2.1829101562500455,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f048.idx",
+          "last_modified": "2026-02-21T15:45:09Z",
+          "etag": "\"91165964e6981f45d4d69297e252eb42\"",
+          "sha256": "adb6a80f17ae2ecb37b8581243df195d43c65168be4a3f75b97704c90daf485f"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f048",
+          "field": "u",
+          "byte_range": [
+            147018439,
+            147305353
+          ],
+          "last_modified": "2026-02-21T15:45:05Z",
+          "etag": "\"4c05295c6e634db6d3c06f99befb1e33\"",
+          "sha256": "46f2571f9d615f910cfa0ed471797291ec388cb4863ed29fa3bffdde8756e50a"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f048",
+          "field": "v",
+          "byte_range": [
+            147305354,
+            147592874
+          ],
+          "last_modified": "2026-02-21T15:45:05Z",
+          "etag": "\"4c05295c6e634db6d3c06f99befb1e33\"",
+          "sha256": "92b9b8458429bc99460e85b2a62d835281ec6df0c2aacbdec804950165c84836"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f048",
+          "field": "t",
+          "byte_range": [
+            123355739,
+            123619825
+          ],
+          "last_modified": "2026-02-21T15:45:05Z",
+          "etag": "\"4c05295c6e634db6d3c06f99befb1e33\"",
+          "sha256": "5d4ba148b92a3d11c894e6d765e10454619af6a92c7b39f60421c727ac3f0da2"
+        }
+      ]
+    },
+    {
+      "step": 51,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": 5.7694384765625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 5.7694384765625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": -0.11659423828125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -0.11659423828125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": -0.3340429687499977,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -0.3340429687499977,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f051.idx",
+          "last_modified": "2026-02-21T15:46:13Z",
+          "etag": "\"077020cde6a5f4b498454364b890895f\"",
+          "sha256": "ce40ce177c5558425af7fee937116e7bf129ed19a2e65e4557508dbd32d043b8"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f051",
+          "field": "u",
+          "byte_range": [
+            144516721,
+            144803620
+          ],
+          "last_modified": "2026-02-21T15:46:08Z",
+          "etag": "\"cb938620bc13ce55767956f6b2246bff\"",
+          "sha256": "b818aa7ab04270de13f5d26f1f781fb23704941b063019faac26d2a28199b353"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f051",
+          "field": "v",
+          "byte_range": [
+            144803621,
+            145090305
+          ],
+          "last_modified": "2026-02-21T15:46:08Z",
+          "etag": "\"cb938620bc13ce55767956f6b2246bff\"",
+          "sha256": "41de837724e8a1bf7482170e0a8d2dd6983e8ad182687194825005594ba59250"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f051",
+          "field": "t",
+          "byte_range": [
+            121307519,
+            121571978
+          ],
+          "last_modified": "2026-02-21T15:46:08Z",
+          "etag": "\"cb938620bc13ce55767956f6b2246bff\"",
+          "sha256": "244bedb659ee48181cdbf1ac89bfe8bd7fbde39b80bfbcccfea4f243c0016855"
+        }
+      ]
+    },
+    {
+      "step": 54,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": 5.635189819335938,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 5.635189819335938,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": -0.27830810546875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -0.27830810546875,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": -2.7895117187499636,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -2.7895117187499636,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f054.idx",
+          "last_modified": "2026-02-21T15:47:24Z",
+          "etag": "\"e63d216866f8b2432f606a78af7863de\"",
+          "sha256": "ce0077be53fe26c05896a21af519300be90518a660627eed7fe8a0008f7c4714"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f054",
+          "field": "u",
+          "byte_range": [
+            144374180,
+            144558641
+          ],
+          "last_modified": "2026-02-21T15:47:18Z",
+          "etag": "\"9ef27e417a5a06aedf8cf69a9be9bead\"",
+          "sha256": "163dd51eee6a372c0bbed6081f3e01fa7913af4d090a9fddcc6eadd63f29afcd"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f054",
+          "field": "v",
+          "byte_range": [
+            144558642,
+            144743091
+          ],
+          "last_modified": "2026-02-21T15:47:18Z",
+          "etag": "\"9ef27e417a5a06aedf8cf69a9be9bead\"",
+          "sha256": "273506f7b5a4eab36174171dacf920e80918b918dc370906c1d5143f7d30a42e"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f054",
+          "field": "t",
+          "byte_range": [
+            121065172,
+            121329344
+          ],
+          "last_modified": "2026-02-21T15:47:18Z",
+          "etag": "\"9ef27e417a5a06aedf8cf69a9be9bead\"",
+          "sha256": "f2a649e2252b97a4365e0a94c35d36d2a0aca6e05bc260475f4ac3ed69c7af2e"
+        }
+      ]
+    },
+    {
+      "step": 57,
+      "values": {
+        "u": {
+          "turbine_1": {
+            "value": 4.508578491210938,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 4.508578491210938,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "v": {
+          "turbine_1": {
+            "value": 0.732305908203125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": 0.732305908203125,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        },
+        "t": {
+          "turbine_1": {
+            "value": -3.86962890625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.393418717841442
+          },
+          "turbine_2": {
+            "value": -3.86962890625,
+            "latitude": 43.5,
+            "longitude": 78.5,
+            "distance_km": 16.2278217184655
+          }
+        }
+      },
+      "objects": [
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f057.idx",
+          "last_modified": "2026-02-21T15:47:17Z",
+          "etag": "\"86a886a485ef8e5e789415dceea200e7\"",
+          "sha256": "b7adb1d372e1c38d4dd0de5ef3cdf02af197c49c4d3ef2de7636dedecf24f783"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f057",
+          "field": "u",
+          "byte_range": [
+            143586731,
+            143771228
+          ],
+          "last_modified": "2026-02-21T15:47:12Z",
+          "etag": "\"d4de3a4287ccfa616200c060679d4fd0\"",
+          "sha256": "806b2fcb7e2433de5b009d59dffb71b2901408da13e64822ee52c88a8e82da77"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f057",
+          "field": "v",
+          "byte_range": [
+            143771229,
+            143956847
+          ],
+          "last_modified": "2026-02-21T15:47:12Z",
+          "etag": "\"d4de3a4287ccfa616200c060679d4fd0\"",
+          "sha256": "d448f7370ca5109b4f870c79585fe932a38f4dc27e6573610540ced22e743c91"
+        },
+        {
+          "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20260221/12/atmos/gfs.t12z.pgrb2.0p50.f057",
+          "field": "t",
+          "byte_range": [
+            120700567,
+            120963793
+          ],
+          "last_modified": "2026-02-21T15:47:12Z",
+          "etag": "\"d4de3a4287ccfa616200c060679d4fd0\"",
+          "sha256": "8df09589058504583706f20475f883fdfe23d19ba7b6651d70a94fb9d15a7c7a"
+        }
+      ]
+    }
+  ]
+}

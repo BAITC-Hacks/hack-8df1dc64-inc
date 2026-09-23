@@ -1,0 +1,184 @@
+{
+  "daily_batches": 28,
+  "horizon_hours": 48,
+  "turbines": [
+    "turbine_1",
+    "turbine_2"
+  ],
+  "local_timezone": "UTC+05:00",
+  "local_test_period": "2026-02-01 to 2026-02-28",
+  "batches": [
+    {
+      "as_of": "2026-01-31T19:00:00Z",
+      "run_id": "gfs.20260131/12",
+      "available_at": "2026-01-31T15:59:51Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-01T19:00:00Z",
+      "run_id": "gfs.20260201/12",
+      "available_at": "2026-02-01T16:00:51Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-02T19:00:00Z",
+      "run_id": "gfs.20260202/12",
+      "available_at": "2026-02-02T16:00:49Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-03T19:00:00Z",
+      "run_id": "gfs.20260203/12",
+      "available_at": "2026-02-03T16:02:01Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-04T19:00:00Z",
+      "run_id": "gfs.20260204/12",
+      "available_at": "2026-02-04T16:01:48Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-05T19:00:00Z",
+      "run_id": "gfs.20260205/12",
+      "available_at": "2026-02-05T16:01:20Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-06T19:00:00Z",
+      "run_id": "gfs.20260206/12",
+      "available_at": "2026-02-06T16:01:24Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-07T19:00:00Z",
+      "run_id": "gfs.20260207/12",
+      "available_at": "2026-02-07T16:01:19Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-08T19:00:00Z",
+      "run_id": "gfs.20260208/12",
+      "available_at": "2026-02-08T16:00:02Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-09T19:00:00Z",
+      "run_id": "gfs.20260209/12",
+      "available_at": "2026-02-09T16:01:53Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-10T19:00:00Z",
+      "run_id": "gfs.20260210/12",
+      "available_at": "2026-02-10T16:01:28Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-11T19:00:00Z",
+      "run_id": "gfs.20260211/12",
+      "available_at": "2026-02-11T16:00:55Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-12T19:00:00Z",
+      "run_id": "gfs.20260212/12",
+      "available_at": "2026-02-12T16:02:09Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-13T19:00:00Z",
+      "run_id": "gfs.20260213/12",
+      "available_at": "2026-02-13T15:58:43Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-14T19:00:00Z",
+      "run_id": "gfs.20260214/12",
+      "available_at": "2026-02-14T15:59:57Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-15T19:00:00Z",
+      "run_id": "gfs.20260215/12",
+      "available_at": "2026-02-15T16:01:19Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-16T19:00:00Z",
+      "run_id": "gfs.20260216/12",
+      "available_at": "2026-02-16T16:01:29Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-17T19:00:00Z",
+      "run_id": "gfs.20260217/12",
+      "available_at": "2026-02-17T16:02:17Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-18T19:00:00Z",
+      "run_id": "gfs.20260218/12",
+      "available_at": "2026-02-18T16:00:24Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-19T19:00:00Z",
+      "run_id": "gfs.20260219/12",
+      "available_at": "2026-02-19T16:00:24Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-20T19:00:00Z",
+      "run_id": "gfs.20260220/12",
+      "available_at": "2026-02-20T16:02:27Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-21T19:00:00Z",
+      "run_id": "gfs.20260221/12",
+      "available_at": "2026-02-21T15:47:24Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-22T19:00:00Z",
+      "run_id": "gfs.20260222/12",
+      "available_at": "2026-02-22T15:48:01Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-23T19:00:00Z",
+      "run_id": "gfs.20260223/12",
+      "available_at": "2026-02-23T16:03:32Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-24T19:00:00Z",
+      "run_id": "gfs.20260224/12",
+      "available_at": "2026-02-24T15:58:41Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-25T19:00:00Z",
+      "run_id": "gfs.20260225/12",
+      "available_at": "2026-02-25T15:55:38Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-26T19:00:00Z",
+      "run_id": "gfs.20260226/12",
+      "available_at": "2026-02-26T15:51:21Z",
+      "points": 96
+    },
+    {
+      "as_of": "2026-02-27T19:00:00Z",
+      "run_id": "gfs.20260227/12",
+      "available_at": "2026-02-27T15:56:31Z",
+      "points": 96
+    }
+  ],
+  "unique_first_day_turbine_hours": 1344,
+  "weather_points_in_48h_batches": 2688,
+  "backend_B1_validation": "passed for all 28 batches",
+  "january_validation_batches": 2
+}

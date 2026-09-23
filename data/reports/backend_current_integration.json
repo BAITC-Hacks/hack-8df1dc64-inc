@@ -1,0 +1,115 @@
+{
+  "timestamp_role": "end",
+  "timestamp_role_confirmed": false,
+  "evaluation_scope": "Two January holdout windows only; February actuals unavailable",
+  "power_units": "organizer normalized power, not kW",
+  "cases": [
+    {
+      "request": {
+        "as_of": "2026-01-15T19:00:00Z",
+        "horizon_hours": 24,
+        "turbine_ids": [
+          "turbine_1"
+        ],
+        "timestamp_role": "end"
+      },
+      "http_status": 200,
+      "points": 24,
+      "weather": {
+        "source": "NOAA GFS 0.5 degree operational archive (AWS)",
+        "run_id": "gfs.20260115/12",
+        "issued_at": "2026-01-15T12:00:00Z",
+        "available_at": "2026-01-15T15:59:53Z",
+        "availability_evidence": "All NOAA public S3 GRIB/index Last-Modified values satisfy issued_at <= timestamp <= as_of; available_at is their maximum. Evidence records current object version existence, not historical access logs. Provenance SHA-256=35e55f6a53ded2f4a0506ac52401f55fc618edda7cae7686be36739f9098b4b2; https://registry.opendata.aws/noaa-gfs-bdp-pds/",
+        "wind_height_m": 100.0,
+        "input_mode": "archive_file"
+      },
+      "metrics": [
+        {
+          "turbine_id": "turbine_1",
+          "forecast_hours": 24,
+          "scored_hours": 24,
+          "mae": 0.26744533176042373,
+          "rmse": 0.4099440282748946,
+          "training_mean_baseline_mae": 0.31334213052395604
+        }
+      ]
+    },
+    {
+      "request": {
+        "as_of": "2026-01-23T19:00:00Z",
+        "horizon_hours": 48,
+        "turbine_ids": [
+          "turbine_1",
+          "turbine_2"
+        ],
+        "timestamp_role": "end"
+      },
+      "http_status": 200,
+      "points": 96,
+      "weather": {
+        "source": "NOAA GFS 0.5 degree operational archive (AWS)",
+        "run_id": "gfs.20260123/12",
+        "issued_at": "2026-01-23T12:00:00Z",
+        "available_at": "2026-01-23T16:01:42Z",
+        "availability_evidence": "All NOAA public S3 GRIB/index Last-Modified values satisfy issued_at <= timestamp <= as_of; available_at is their maximum. Evidence records current object version existence, not historical access logs. Provenance SHA-256=612534d36b467abd0c558c59258fbb7a045a36b58f2415a888c49c1ef9887d99; https://registry.opendata.aws/noaa-gfs-bdp-pds/",
+        "wind_height_m": 100.0,
+        "input_mode": "archive_file"
+      },
+      "metrics": [
+        {
+          "turbine_id": "turbine_1",
+          "forecast_hours": 48,
+          "scored_hours": 48,
+          "mae": 0.3878641660382037,
+          "rmse": 0.5391124505358664,
+          "training_mean_baseline_mae": 0.3869579462988982
+        },
+        {
+          "turbine_id": "turbine_2",
+          "forecast_hours": 48,
+          "scored_hours": 48,
+          "mae": 0.33946133920615457,
+          "rmse": 0.49349396337565027,
+          "training_mean_baseline_mae": 0.36349261508662556
+        }
+      ]
+    },
+    {
+      "request": {
+        "as_of": "2026-01-31T19:00:00Z",
+        "horizon_hours": 48,
+        "turbine_ids": [
+          "turbine_1",
+          "turbine_2"
+        ],
+        "timestamp_role": "end"
+      },
+      "http_status": 200,
+      "points": 96,
+      "weather": {
+        "source": "NOAA GFS 0.5 degree operational archive (AWS)",
+        "run_id": "gfs.20260131/12",
+        "issued_at": "2026-01-31T12:00:00Z",
+        "available_at": "2026-01-31T15:59:51Z",
+        "availability_evidence": "All NOAA public S3 GRIB/index Last-Modified values satisfy issued_at <= timestamp <= as_of; available_at is their maximum. Evidence records current object version existence, not historical access logs. Provenance SHA-256=133d96ceb8c42c8bd87afdf78d76194d932a78154291086889573281c3f8a20a; https://registry.opendata.aws/noaa-gfs-bdp-pds/",
+        "wind_height_m": 100.0,
+        "input_mode": "archive_file"
+      },
+      "metrics": [
+        {
+          "turbine_id": "turbine_1",
+          "forecast_hours": 48,
+          "scored_hours": 0
+        },
+        {
+          "turbine_id": "turbine_2",
+          "forecast_hours": 48,
+          "scored_hours": 0
+        }
+      ]
+    }
+  ],
+  "backend_commit": "f25ef672403021d08188074da3bf38719b2eaafe",
+  "validation": "Real local HTTP requests; no OpenAI calls in this check"
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Real Data-module checks; temporary synthetic test inputs only.
+# History, NOAA decoding/availability rules and all bundled real archive checks.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 python3 -m unittest discover -s data/tests -p 'test_*.py' -v
