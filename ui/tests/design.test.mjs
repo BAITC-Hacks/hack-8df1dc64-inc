@@ -52,3 +52,15 @@ test('loaded styling and public pages respect the user design restrictions', asy
     assert.match(html, /href="\.\/terms.html"|Условия использования/, file);
   }
 });
+
+test('station illustration has unique identifiers and resolves every reused SVG shape', async () => {
+  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  const svg = html.match(/<svg\b[^>]*>[\s\S]*?<\/svg>/)?.[0];
+  assert.ok(svg, 'Station illustration must be present');
+  const ids = [...svg.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
+  assert.equal(new Set(ids).size, ids.length, 'SVG identifiers must be unique');
+  const references = [...svg.matchAll(/<use\b[^>]*href="#([^"]+)"/g)];
+  assert.ok(references.length > 0, 'Illustration must reuse its shared geometry');
+  for (const [, id] of references) assert.ok(ids.includes(id), `Missing SVG shape: ${id}`);
+  assert.doesNotMatch(svg, /<image\b|https?:\/\//i, 'Illustration must work without remote image assets');
+});

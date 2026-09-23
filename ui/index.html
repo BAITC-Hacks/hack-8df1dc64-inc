@@ -30,10 +30,18 @@
         </div>
         <div class="station-art" aria-hidden="true">
           <svg viewBox="0 0 430 250" fill="none">
+            <defs>
+              <g id="turbine-rotor" fill="currentColor">
+                <path id="turbine-blade" d="M-3 0  -9-29 Q-10-33-7-39 L-2-69 Q0-74 1-69 L4-29 3 0Z"/>
+                <use href="#turbine-blade" transform="rotate(120)"/>
+                <use href="#turbine-blade" transform="rotate(240)"/>
+                <circle r="7"/>
+              </g>
+            </defs>
             <path d="M10 185C95 143 175 210 250 166s133-45 180-21M0 213c100-45 155 10 245-15s125-32 185-16" stroke="currentColor" opacity=".22"/>
-            <path d="m149 202 7-116 7 116m-7-116L111 59l40 18 5 9 3-61 5 48-8 13 49 23-45-13-4-10" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="m277 213 8-113 8 113m-8-113-49-30 43 20 6 10 3-66 5 52-8 14 53 25-48-14-5-11" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-            <circle cx="156" cy="86" r="4" fill="currentColor"/><circle cx="285" cy="100" r="4" fill="currentColor"/>
+            <path d="M142 125h6l6 88h-18Z M281 94h8l8 119h-24Z" fill="currentColor"/>
+            <use href="#turbine-rotor" transform="translate(145 125) scale(.78) rotate(30)"/>
+            <use href="#turbine-rotor" transform="translate(285 94) rotate(-45)"/>
             <path d="M39 106h40m-25 9h36m262 46h35m-22 9h38" stroke="currentColor" stroke-linecap="round" opacity=".4"/>
           </svg><span>43.64° N / 78.53° E</span>
         </div>
