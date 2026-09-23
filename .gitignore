@@ -1,0 +1,10 @@
+.env
+.env.local
+__pycache__/
+*.pyc
+node_modules/
+.venv/
+venv/
+*.log
+.DS_Store
+.claude/worktrees/
