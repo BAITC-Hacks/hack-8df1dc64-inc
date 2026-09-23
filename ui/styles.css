@@ -44,6 +44,23 @@ h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(30px, 3.5v
 .station-art { position: relative; width: 32%; min-width: 220px; color: #c2c7c1; }
 .station-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .station-art > span { position: absolute; top: 20px; right: 23px; font-size: 9px; letter-spacing: 1px; }
+/* Keep rotor placement on the parent; rotate around the local hub, never its bounding box. */
+.station-art .turbine-spin { transform-box: view-box; transform-origin: 0 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .station-art .turbine-spin { animation: turbine-turn 14s linear infinite; }
+  .station-art .turbine-spin-small { animation-duration: 11s; }
+  .station-art .wind-flow { animation: wind-drift 5s linear infinite; }
+  .station-art .wind-flow-late { animation-delay: -2.5s; animation-duration: 6s; }
+}
+@keyframes turbine-turn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes wind-drift {
+  0% { transform: translateX(-26px); opacity: 0; }
+  20%, 70% { opacity: 1; }
+  100% { transform: translateX(26px); opacity: 0; }
+}
 .workspace-grid { display: grid; grid-template-columns: 350px minmax(0, 1fr); column-gap: 48px; }
 .panel { min-width: 0; border-top: 2px solid var(--ink); }
 .settings { padding: 22px 0 0; }

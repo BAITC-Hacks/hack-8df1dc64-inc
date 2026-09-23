@@ -40,9 +40,16 @@
             </defs>
             <path d="M10 185C95 143 175 210 250 166s133-45 180-21M0 213c100-45 155 10 245-15s125-32 185-16" stroke="currentColor" opacity=".22"/>
             <path d="M142 125h6l6 88h-18Z M281 94h8l8 119h-24Z" fill="currentColor"/>
-            <use href="#turbine-rotor" transform="translate(145 125) scale(.78) rotate(30)"/>
-            <use href="#turbine-rotor" transform="translate(285 94) rotate(-45)"/>
-            <path d="M39 106h40m-25 9h36m262 46h35m-22 9h38" stroke="currentColor" stroke-linecap="round" opacity=".4"/>
+            <g transform="translate(145 125) scale(.78)">
+              <g class="turbine-spin turbine-spin-small"><use href="#turbine-rotor" transform="rotate(30)"/></g>
+            </g>
+            <g transform="translate(285 94)">
+              <g class="turbine-spin"><use href="#turbine-rotor" transform="rotate(-45)"/></g>
+            </g>
+            <g stroke="currentColor" stroke-linecap="round" opacity=".4">
+              <path class="wind-flow" d="M39 106h40m-25 9h36"/>
+              <path class="wind-flow wind-flow-late" d="M352 161h35m-22 9h38"/>
+            </g>
           </svg><span>43.64° N / 78.53° E</span>
         </div>
       </section>

@@ -40,7 +40,7 @@ test('failed module load hides the skeleton and any partial preview, exposing a 
 
 test('loaded styling and public pages respect the user design restrictions', async () => {
   const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
-  assert.doesNotMatch(css, /gradient\(|box-shadow\s*:|drop-shadow\(|backdrop-filter\s*:|transition\s*:|animation\s*:|border-left\s*:/i);
+  assert.doesNotMatch(css, /gradient\(|box-shadow\s*:|drop-shadow\(|backdrop-filter\s*:|transition\s*:|border-left\s*:/i);
   assert.doesNotMatch(css, /(?:background|background-color)\s*:\s*(?:white\b|#fff(?:fff)?\b)/i);
   assert.doesNotMatch(css, /font-family\s*:[^;]*(?:\bInter\b|\bGeist\b|Space Grotesk)/i);
   for (const match of css.matchAll(/border-radius\s*:\s*([^;]+)/g)) assert.equal(match[1].trim(), '0');
@@ -63,4 +63,23 @@ test('station illustration has unique identifiers and resolves every reused SVG 
   assert.ok(references.length > 0, 'Illustration must reuse its shared geometry');
   for (const [, id] of references) assert.ok(ids.includes(id), `Missing SVG shape: ${id}`);
   assert.doesNotMatch(svg, /<image\b|https?:\/\//i, 'Illustration must work without remote image assets');
+});
+
+test('decorative motion is confined to the illustration and opted out by reduced-motion', async () => {
+  const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+  const motionBlock = css.match(/@media \(prefers-reduced-motion: no-preference\)\s*\{((?:[^{}]|\{[^{}]*\})*)\}/);
+  assert.ok(motionBlock, 'Animation must require no-preference, leaving a static fallback');
+  assert.doesNotMatch(css.replace(motionBlock[0], ''), /animation(?:-[\w-]+)?\s*:/, 'No animation outside the motion preference gate');
+  const rules = [...motionBlock[1].matchAll(/([^{}]+)\{([^{}]*)\}/g)];
+  assert.ok(rules.some(([, , body]) => /animation\s*:/.test(body)));
+  for (const [, selector] of rules) assert.match(selector.trim(), /^\.station-art \.[\w-]+$/, 'Motion must stay within station artwork');
+
+  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  const rotors = [...html.matchAll(/<g transform="translate\(([^)]+)\)(?: scale\([^)]+\))?">\s*<g class="turbine-spin[^\"]*">([\s\S]*?)<\/g>\s*<\/g>/g)];
+  assert.equal(rotors.length, 2, 'Both rotors keep a fixed parent position');
+  for (const [, , content] of rotors) {
+    assert.match(content, /<use href="#turbine-rotor"/);
+    assert.doesNotMatch(content, /<path/, 'Towers and hills must not rotate with the blades');
+  }
+  assert.match(css, /\.station-art \.turbine-spin\s*\{[^}]*transform-origin:\s*0 0;/);
 });
