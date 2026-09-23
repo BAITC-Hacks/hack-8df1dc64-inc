@@ -42,17 +42,29 @@
       <div class="workspace-grid">
         <section class="panel settings" aria-labelledby="settings-title">
           <div class="section-heading"><span class="step">01</span><h2 id="settings-title">Параметры прогноза</h2></div>
-          <p class="section-description">Выберите дату исторического запуска и глубину прогноза.</p>
+          <p class="section-description">Настройте исторический запуск для всей станции или отдельной турбины.</p>
           <form id="forecast-form" novalidate>
+            <fieldset class="turbine-fieldset">
+              <legend class="field-label">Турбины для прогноза</legend>
+              <div class="turbine-options">
+                <label><input type="checkbox" name="turbine" value="turbine_1" checked aria-describedby="turbines-error"><span>Турбина 1</span></label>
+                <label><input type="checkbox" name="turbine" value="turbine_2" checked aria-describedby="turbines-error"><span>Турбина 2</span></label>
+              </div>
+              <p id="turbines-error" class="form-error" role="alert" hidden></p>
+            </fieldset>
             <label class="field-label" for="issue-date">Дата выпуска прогноза</label>
-            <input id="issue-date" name="issue-date" type="date" value="2026-01-31" min="2026-01-31" max="2026-02-28" required aria-describedby="date-hint form-error">
+            <input id="issue-date" name="issue-date" type="date" value="2026-01-31" min="2026-01-31" max="2026-02-28" required aria-describedby="date-hint date-error">
+            <p id="date-error" class="form-error" role="alert" hidden></p>
             <p class="hint" id="date-hint">С 31 января по 28 февраля 2026 года.</p>
+            <label class="field-label" for="issue-hour">Час запуска <span class="timezone-label">UTC</span></label>
+            <select id="issue-hour" name="issue-hour" required aria-describedby="hour-hint hour-error"></select>
+            <p id="hour-error" class="form-error" role="alert" hidden></p>
+            <p class="hint" id="hour-hint">Время задано в UTC и не зависит от часового пояса вашего устройства.</p>
             <fieldset><legend class="field-label">Горизонт прогнозирования</legend><div class="horizon-options">
-              <label><input type="radio" name="horizon" value="24" checked><span><strong>24 часа</strong><small>На сутки вперёд</small></span></label>
-              <label><input type="radio" name="horizon" value="48"><span><strong>48 часов</strong><small>На двое суток</small></span></label>
-            </div></fieldset>
-            <p id="form-error" class="form-error" role="alert" hidden></p>
-            <div class="selection-summary" id="selection-summary" role="status" aria-live="polite"></div>
+              <label><input type="radio" name="horizon" value="24" checked aria-describedby="horizon-error"><span><strong>24 часа</strong><small>На сутки вперёд</small></span></label>
+              <label><input type="radio" name="horizon" value="48" aria-describedby="horizon-error"><span><strong>48 часов</strong><small>На двое суток</small></span></label>
+            </div><p id="horizon-error" class="form-error" role="alert" hidden></p></fieldset>
+            <div class="draft-controls"><p id="storage-status" class="hint" role="status"></p><button type="button" id="reset-selection" class="reset-button">Сбросить параметры</button></div>
             <button class="run-button" type="submit" disabled aria-describedby="connection-hint">Сформировать прогноз <span aria-hidden="true">↗</span></button>
             <p class="hint connection-hint" id="connection-hint">Запуск станет доступен после подключения сервиса прогнозирования.</p>
           </form>
@@ -61,6 +73,17 @@
         </section>
         <section class="panel results" aria-labelledby="results-title">
           <div class="results-heading"><div class="section-heading"><span class="step">02</span><h2 id="results-title">Почасовая выработка</h2></div><span class="neutral-tag">Нет расчёта</span></div>
+          <div class="selection-preview">
+            <h3>Выбранные параметры</h3>
+            <dl id="selection-summary" hidden>
+              <div><dt>Дата выпуска</dt><dd id="preview-date"></dd></div>
+              <div><dt>Момент запуска</dt><dd id="preview-time"></dd></div>
+              <div><dt>Горизонт</dt><dd id="preview-horizon"></dd></div>
+              <div><dt>Объекты</dt><dd id="preview-turbines"></dd></div>
+            </dl>
+            <p id="selection-empty">Заполните параметры запуска, чтобы увидеть сводку.</p>
+            <p id="selection-announcement" class="visually-hidden" role="status" aria-live="polite"></p>
+          </div>
           <div class="empty-state">
             <div class="chart-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><path d="M13 12v40h41M22 40V29m12 11V19m12 21V25" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div>
             <h3>Прогноз ещё не сформирован</h3><p>Здесь появится почасовая выработка после выполнения расчёта сервисом прогнозирования.</p>

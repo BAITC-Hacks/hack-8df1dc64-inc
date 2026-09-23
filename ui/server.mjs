@@ -9,6 +9,7 @@ const assets = new Map([
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
   ['/app.mjs', ['app.mjs', 'text/javascript; charset=utf-8']],
   ['/parameters.mjs', ['parameters.mjs', 'text/javascript; charset=utf-8']],
+  ['/draft.mjs', ['draft.mjs', 'text/javascript; charset=utf-8']],
 ]);
 
 export function createUiServer() {
