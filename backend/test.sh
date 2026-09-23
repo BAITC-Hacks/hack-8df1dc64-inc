@@ -22,5 +22,6 @@ if ! "$python_command" -c 'import sys; sys.exit(sys.version_info < (3, 11))'; th
 fi
 
 # B1-B5: validation, calculation, HTTP, analysis, NOAA workflow and cache checks.
+# Includes opt-in temperature correction and unchanged default calculation checks.
 # Offline gate: real paid OpenAI checks are explicit via backend.analyze_weather.
 "$python_command" -m unittest discover -s backend/tests -t . -v

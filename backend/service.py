@@ -10,6 +10,7 @@ from threading import RLock
 
 from data.history import RAW, hourly_history, iter_observations, verify_sources
 from backend.model import MODEL, HISTORY_END, build_curves, interpolate, utc_text
+from backend.temperature_correction import reference_temperatures, temperature_corrected_power
 from backend.validation import (ForecastValidationError, _object, _timestamp,
                                 validate_forecast_inputs, validate_forecast_request)
 
@@ -43,7 +44,11 @@ def parse_request(payload, forecast):
         fields += ("horizon_hours",)
         if isinstance(payload, dict) and "weather" in payload:
             fields += ("weather",)
+        if isinstance(payload, dict) and "apply_temperature_correction" in payload:
+            fields += ("apply_temperature_correction",)
     body = _object(payload, fields, "request", "INVALID_REQUEST")
+    if forecast and type(body.get("apply_temperature_correction", False)) is not bool:
+        raise ForecastValidationError("INVALID_REQUEST", "request.apply_temperature_correction", "Expected a boolean.")
     role = body["timestamp_role"]
     if role not in ("start", "end"):
         raise ForecastValidationError("INVALID_REQUEST", "request.timestamp_role", "Explicitly choose start or end.")
@@ -59,16 +64,17 @@ class ForecastService:
         self._history_cache = {}
         self._history_lock = RLock()
 
-    def _history(self, request, role):
+    def _history(self, request, role, apply_temperature_correction=False):
         with self._history_lock:
-            return self._history_locked(request, role)
+            return self._history_locked(request, role, apply_temperature_correction)
 
-    def _history_locked(self, request, role):
+    def _history_locked(self, request, role, apply_temperature_correction=False):
         try:
             manifest = verify_sources(self.raw_dir)
             selected = [f for f in manifest["files"] if f["turbine_id"] in request.turbine_ids]
             key = (min(request.as_of, HISTORY_END), role, request.turbine_ids,
-                   tuple((f["turbine_id"], f["sha256_uncompressed"]) for f in selected))
+                   tuple((f["turbine_id"], f["sha256_uncompressed"]) for f in selected),
+                   apply_temperature_correction)
             if key in self._history_cache:
                 cached = deepcopy(self._history_cache[key])
                 cached["as_of"] = utc_text(request.as_of)
@@ -87,6 +93,12 @@ class ForecastService:
                 **{key: value for key, value in history.items() if key != "points"},
                 "model": dict(MODEL), "turbines": build_curves(history["points"], request.as_of, request.turbine_ids),
                 "warnings": warnings()}
+        if apply_temperature_correction:
+            try:
+                references = reference_temperatures(history["points"])
+            except ValueError as exc:
+                raise ForecastValidationError("INVALID_HISTORY", "history.temperature_c", str(exc)) from exc
+            result["model"]["temperature_correction"] = {"reference_temperature_c": references}
         if len(self._history_cache) >= 16:
             self._history_cache.pop(next(iter(self._history_cache)))
         self._history_cache[key] = deepcopy(result)
@@ -120,11 +132,18 @@ class ForecastService:
         provided = "weather" in payload
         weather = payload["weather"] if provided else self._archive(request)
         validated = validate_forecast_inputs(base, weather)
-        history = self._history(request, role)
+        apply_correction = payload.get("apply_temperature_correction", False)
+        history = self._history(request, role, apply_correction)
         curves = {t["turbine_id"]: t["curve_knots"] for t in history["turbines"]}
         points = []
-        for point in validated.weather.points:
+        for index, point in enumerate(validated.weather.points):
             power, extrapolated = interpolate(curves[point.turbine_id], point.wind_speed_ms)
+            if apply_correction:
+                reference = history["model"]["temperature_correction"]["reference_temperature_c"][point.turbine_id]
+                try:
+                    power = temperature_corrected_power(power, point.temperature_c, reference)
+                except ValueError as exc:
+                    raise ForecastValidationError("INVALID_WEATHER", f"weather.points[{index}].temperature_c", str(exc)) from exc
             points.append({"turbine_id": point.turbine_id, "valid_at": utc_text(point.valid_at),
                            "normalized_power": power, "wind_speed_ms": point.wind_speed_ms,
                            "temperature_c": point.temperature_c, "extrapolated": extrapolated})
