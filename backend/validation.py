@@ -101,7 +101,7 @@ def _number(value: object, path: str) -> float:
     return result
 
 
-def _request(value: object) -> ForecastRequest:
+def validate_forecast_request(value: object) -> ForecastRequest:
     data = _object(value, ("as_of", "horizon_hours", "turbine_ids"), "request", "INVALID_REQUEST")
     as_of = _timestamp(data["as_of"], "request.as_of", "INVALID_REQUEST", hourly=True)
     horizon = data["horizon_hours"]
@@ -200,5 +200,5 @@ def validate_forecast_inputs(request: object, weather: object) -> ValidatedForec
     This validates supplied availability metadata. Authenticating a historical weather
     archive remains the responsibility of the source adapter.
     """
-    validated_request = _request(request)
+    validated_request = validate_forecast_request(request)
     return ValidatedForecastInput(validated_request, _weather(weather, validated_request))
