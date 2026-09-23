@@ -13,7 +13,7 @@
     <header class="topbar">
       <a class="brand" href="./" aria-label="Ветропрогноз, главная"><span>ветропрогноз<span class="brand-caption">ВЕТРОЭНЕРГЕТИКА / РАСЧЁТЫ</span></span></a>
       <span class="workspace-label">Рабочее пространство ВЭС</span>
-      <span class="status">Расчёт не подключён</span>
+      <span class="status">NOAA / расчёт / OpenAI</span>
     </header>
     <main id="main">
       <div class="page-heading">
@@ -79,8 +79,12 @@
               <label><input type="radio" name="horizon" value="48" aria-describedby="horizon-error"><span><strong>48 часов</strong><small>На двое суток</small></span></label>
             </div><p id="horizon-error" class="form-error" role="alert" hidden></p></fieldset>
             <div class="draft-controls"><p id="storage-status" class="hint" role="status"></p><button type="button" id="reset-selection" class="reset-button">Сбросить параметры</button></div>
+            <label class="field-label" for="timestamp-role">Метка исходной истории</label>
+            <select id="timestamp-role" name="timestamp-role"><option value="end" selected>Конец 10 минут (принятое допущение)</option><option value="start">Начало 10 минут (допущение)</option></select>
+            <p class="hint">Организатор пока не подтвердил смысл метки. Выбор влияет на агрегацию истории.</p>
             <button class="run-button" type="submit" disabled aria-describedby="connection-hint">Сформировать прогноз</button>
-            <p class="hint connection-hint" id="connection-hint">Запуск станет доступен после подключения сервиса прогнозирования.</p>
+            <button class="reset-button" id="refresh-weather" type="button">Обновить погоду и пересчитать</button>
+            <p class="hint connection-hint" id="connection-hint">Запуск обращается к сервису расчёта и OpenAI. Готовые выпуски: 19:00 UTC с 31 января по 27 февраля; другие моменты загружаются из NOAA.</p>
           </form>
           <noscript><p class="form-error">Включите JavaScript, чтобы выбирать параметры прогноза.</p></noscript>
           <aside class="method-note"><strong>Прогноз из прошлого</strong><p>Для каждой даты нужны архивные прогнозы погоды, доступные на момент запуска.</p></aside>
@@ -107,6 +111,8 @@
             <h3>Прогноз ещё не сформирован</h3><p>Здесь появится почасовая выработка после выполнения расчёта сервисом прогнозирования.</p>
             <span class="empty-caption">Выберите параметры прогноза, чтобы подготовить запуск</span>
           </div>
+          <p id="run-status" role="status" aria-live="polite"></p>
+          <div id="forecast-output" hidden></div>
           <div class="result-footer">Результаты расчёта пока не получены</div>
         </section>
       </div>

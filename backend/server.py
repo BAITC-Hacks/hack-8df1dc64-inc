@@ -7,7 +7,7 @@ import os
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 from backend.agent import AgentService
-from backend.config import load_env
+from backend.config import ROOT, load_env
 from backend.openai_analysis import AnalysisError
 from backend.service import ForecastService, strict_json
 from backend.validation import ForecastValidationError
@@ -25,7 +25,7 @@ class HTTPError(Exception):
 
 
 def create_server(address=("127.0.0.1", 8000), service=None, origins=DEFAULT_ORIGINS, analyzer=None):
-    service = service if service is not None else ForecastService(weather_archive_dir=os.getenv("WEATHER_ARCHIVE_DIR"))
+    service = service if service is not None else ForecastService(weather_archive_dir=os.getenv("WEATHER_ARCHIVE_DIR") or ROOT / "data" / "weather")
     agent = AgentService(service, analyzer)
     allowed_origins = frozenset(origins)
 

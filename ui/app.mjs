@@ -1,5 +1,7 @@
 import { defaultSelection, validateSelection } from './parameters.mjs';
 import { createDraftStore } from './draft.mjs';
+import { forecastRequest, requestForecast } from './api.mjs';
+import { renderResult } from './results.mjs';
 
 const form = document.querySelector('#forecast-form');
 const dateInput = document.querySelector('#issue-date');
@@ -63,12 +65,39 @@ function persistChange() {
 }
 form.addEventListener('input', persistChange);
 form.addEventListener('change', persistChange);
-// No backend request is defined until docs/api-contract.md is agreed.
-// Also prevent implicit submission with Enter while the service is unavailable.
+async function runForecast(refresh = false) {
+  updateSelection();
+  const status = document.querySelector('#run-status');
+  let payload;
+  try { payload = forecastRequest(readSelection(), document.querySelector('#timestamp-role').value, refresh); }
+  catch (error) { status.textContent = error.message; return; }
+  form.inert = true;
+  document.querySelector('#forecast-output').hidden = true;
+  document.querySelector('.empty-state').hidden = true;
+  document.querySelector('.results').setAttribute('aria-busy', 'true');
+  document.querySelector('.neutral-tag').textContent = 'Выполняется';
+  status.textContent = 'Проверяем погоду, рассчитываем выработку и получаем анализ OpenAI. Загрузка нового выпуска NOAA может занять несколько минут.';
+  try {
+    const base = `${window.location.protocol}//${window.location.hostname}:8000`;
+    const result = await requestForecast(base, payload);
+    renderResult(result);
+    status.textContent = 'Расчёт и анализ завершены.';
+    document.querySelector('.neutral-tag').textContent = 'Готово';
+    document.querySelector('.result-footer').textContent = `${result.forecast.points.length} почасовых значений получены от сервера.`;
+  } catch (error) {
+    status.textContent = `Не удалось завершить запуск. ${error.message}`;
+    document.querySelector('.neutral-tag').textContent = 'Ошибка';
+    document.querySelector('.result-footer').textContent = 'Новый результат не получен.';
+  } finally {
+    form.inert = false;
+    document.querySelector('.results').setAttribute('aria-busy', 'false');
+  }
+}
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  updateSelection();
+  runForecast();
 });
+document.querySelector('#refresh-weather').addEventListener('click', () => runForecast(true));
 document.querySelector('#reset-selection').addEventListener('click', () => {
   const result = store.clear();
   applySelection(defaultSelection());
@@ -83,3 +112,4 @@ storageStatus.textContent = saved.state === 'invalid'
   ? 'Сохранённые параметры повреждены или устарели. Установлен начальный выбор.'
   : storageMessages[saved.state];
 updateSelection();
+document.querySelector('.run-button').disabled = false;

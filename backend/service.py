@@ -2,12 +2,14 @@
 
 import csv
 import json
+from copy import deepcopy
 from datetime import timedelta
 from itertools import chain
 from pathlib import Path
+from threading import RLock
 
 from data.history import RAW, hourly_history, iter_observations, verify_sources
-from backend.model import MODEL, build_curves, interpolate, utc_text
+from backend.model import MODEL, HISTORY_END, build_curves, interpolate, utc_text
 from backend.validation import (ForecastValidationError, _object, _timestamp,
                                 validate_forecast_inputs, validate_forecast_request)
 
@@ -54,11 +56,23 @@ class ForecastService:
     def __init__(self, raw_dir=RAW, weather_archive_dir=None):
         self.raw_dir = Path(raw_dir)
         self.weather_archive_dir = Path(weather_archive_dir) if weather_archive_dir else None
+        self._history_cache = {}
+        self._history_lock = RLock()
 
     def _history(self, request, role):
+        with self._history_lock:
+            return self._history_locked(request, role)
+
+    def _history_locked(self, request, role):
         try:
             manifest = verify_sources(self.raw_dir)
             selected = [f for f in manifest["files"] if f["turbine_id"] in request.turbine_ids]
+            key = (min(request.as_of, HISTORY_END), role, request.turbine_ids,
+                   tuple((f["turbine_id"], f["sha256_uncompressed"]) for f in selected))
+            if key in self._history_cache:
+                cached = deepcopy(self._history_cache[key])
+                cached["as_of"] = utc_text(request.as_of)
+                return cached
             rows = chain.from_iterable(iter_observations(self.raw_dir / f["path"], f["turbine_id"])
                                        for f in selected)
             history = hourly_history(rows, request.as_of, role)
@@ -67,12 +81,16 @@ class ForecastService:
         except (ValueError, KeyError, TypeError, EOFError, csv.Error) as exc:
             code = "INSUFFICIENT_HISTORY" if str(exc).startswith("No complete historical hours") else "INVALID_HISTORY"
             raise ForecastValidationError(code, "history", str(exc)) from exc
-        return {"as_of": utc_text(request.as_of), "timestamp_role": role,
+        result = {"as_of": utc_text(request.as_of), "timestamp_role": role,
                 "timestamp_role_confirmed": False, "source_timezone": "UTC+05:00",
                 "source_hashes": {f["turbine_id"]: f["sha256_uncompressed"] for f in selected},
                 **{key: value for key, value in history.items() if key != "points"},
                 "model": dict(MODEL), "turbines": build_curves(history["points"], request.as_of, request.turbine_ids),
                 "warnings": warnings()}
+        if len(self._history_cache) >= 16:
+            self._history_cache.pop(next(iter(self._history_cache)))
+        self._history_cache[key] = deepcopy(result)
+        return result
 
     def history_summary(self, payload):
         request, role, _ = parse_request(payload, False)

@@ -11,6 +11,14 @@
   --accent: #843d25;
 }
 * { box-sizing: border-box; }
+.power-chart { width: 100%; min-width: 260px; }
+.power-chart text { fill: var(--muted); font-size: 12px; }
+.table-scroll { overflow-x: auto; max-height: 450px; }
+#forecast-output table { border-collapse: collapse; font-size: 12px; width: 100%; }
+#forecast-output th, #forecast-output td { padding: 8px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+#forecast-output p, #forecast-output li, #run-status { font-size: 13px; line-height: 1.6; }
+#forecast-output details { margin: 18px 0; }
+#refresh-weather { margin-top: 12px; }
 body { margin: 0; }
 a { color: inherit; text-underline-offset: 4px; }
 button, input, select { border-radius: 0; font: inherit; }

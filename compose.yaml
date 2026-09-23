@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:?Set OPENAI_API_KEY in the local .env file}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      WEATHER_ARCHIVE_DIR: /app/data/weather
+      WEATHER_CACHE_DIR: /app/backend/runtime/weather
+      UI_ORIGINS: http://127.0.0.1:3000,http://localhost:3000
+    volumes:
+      - weather_cache:/app/backend/runtime
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3).read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  ui:
+    build:
+      context: .
+      dockerfile: ui/Dockerfile
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+volumes:
+  weather_cache:

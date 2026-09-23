@@ -1,0 +1,1064 @@
+{
+  "as_of": "2026-02-26T19:00:00Z",
+  "horizon_hours": 48,
+  "turbine_ids": [
+    "turbine_1",
+    "turbine_2"
+  ],
+  "timestamp_role": "end",
+  "timestamp_role_confirmed": false,
+  "history": {
+    "as_of": "2026-02-26T19:00:00Z",
+    "timestamp_role": "end",
+    "timestamp_role_confirmed": false,
+    "source_timezone": "UTC+05:00",
+    "source_hashes": {
+      "turbine_1": "c4c341582fb2dd348b7187f0128cff265fe055f469413871ebb5db50eef58b5b",
+      "turbine_2": "820578cd18bb557cd30c2e102f3ae5a386dfc6c489a5a15743339c2b017305e5"
+    },
+    "excluded_incomplete_hours": 308,
+    "excluded_after_cutoff": 0,
+    "excluded_test_rows": 0,
+    "model": {
+      "name": "empirical-wind-curve-v1",
+      "bin_width_ms": 1.0,
+      "minimum_hours": 24
+    },
+    "turbines": [
+      {
+        "turbine_id": "turbine_1",
+        "hours": 23678,
+        "first_hour": "2023-03-10T20:00:00Z",
+        "last_hour": "2026-01-31T18:00:00Z",
+        "mean_normalized_power": 0.37149505870428245,
+        "wind_min_ms": 0.0,
+        "wind_max_ms": 20.14,
+        "curve_knots": [
+          {
+            "wind_speed_ms": 0.7673264907135875,
+            "normalized_power": 0.009982893450635386,
+            "sample_count": 682
+          },
+          {
+            "wind_speed_ms": 1.5216085504342018,
+            "normalized_power": 0.010516366065464262,
+            "sample_count": 2495
+          },
+          {
+            "wind_speed_ms": 2.481454828660436,
+            "normalized_power": 0.02054361370716511,
+            "sample_count": 2140
+          },
+          {
+            "wind_speed_ms": 3.4790149892933617,
+            "normalized_power": 0.04814507494646681,
+            "sample_count": 1868
+          },
+          {
+            "wind_speed_ms": 4.501255616575137,
+            "normalized_power": 0.09623980695623231,
+            "sample_count": 2003
+          },
+          {
+            "wind_speed_ms": 5.516684595524957,
+            "normalized_power": 0.1733670395869191,
+            "sample_count": 2324
+          },
+          {
+            "wind_speed_ms": 6.4920413773148145,
+            "normalized_power": 0.2889482060185185,
+            "sample_count": 2304
+          },
+          {
+            "wind_speed_ms": 7.471443151147098,
+            "normalized_power": 0.43564861673414307,
+            "sample_count": 1976
+          },
+          {
+            "wind_speed_ms": 8.479002574002575,
+            "normalized_power": 0.583030888030888,
+            "sample_count": 1554
+          },
+          {
+            "wind_speed_ms": 9.495988009592326,
+            "normalized_power": 0.7287290167865708,
+            "sample_count": 1390
+          },
+          {
+            "wind_speed_ms": 10.501710752688172,
+            "normalized_power": 0.8642709677419355,
+            "sample_count": 1550
+          },
+          {
+            "wind_speed_ms": 11.48842598648354,
+            "normalized_power": 0.9460497056899935,
+            "sample_count": 1529
+          },
+          {
+            "wind_speed_ms": 12.453816598360655,
+            "normalized_power": 0.966547131147541,
+            "sample_count": 976
+          },
+          {
+            "wind_speed_ms": 13.42684775318578,
+            "normalized_power": 0.9707075788061703,
+            "sample_count": 497
+          },
+          {
+            "wind_speed_ms": 14.438028455284552,
+            "normalized_power": 0.9623848238482385,
+            "sample_count": 246
+          },
+          {
+            "wind_speed_ms": 15.397956989247312,
+            "normalized_power": 0.9733870967741935,
+            "sample_count": 93
+          },
+          {
+            "wind_speed_ms": 16.478765432098765,
+            "normalized_power": 0.9637037037037037,
+            "sample_count": 27
+          },
+          {
+            "wind_speed_ms": 17.398333333333333,
+            "normalized_power": 0.956875,
+            "sample_count": 16
+          },
+          {
+            "wind_speed_ms": 18.471666666666668,
+            "normalized_power": 0.9041666666666667,
+            "sample_count": 4
+          },
+          {
+            "wind_speed_ms": 19.333888888888886,
+            "normalized_power": 0.99,
+            "sample_count": 3
+          },
+          {
+            "wind_speed_ms": 20.14,
+            "normalized_power": 0.99,
+            "sample_count": 1
+          }
+        ]
+      },
+      {
+        "turbine_id": "turbine_2",
+        "hours": 24786,
+        "first_hour": "2023-03-10T20:00:00Z",
+        "last_hour": "2026-01-31T18:00:00Z",
+        "mean_normalized_power": 0.3663015411926087,
+        "wind_min_ms": 0.22833333333333333,
+        "wind_max_ms": 19.560000000000002,
+        "curve_knots": [
+          {
+            "wind_speed_ms": 0.7598443223443223,
+            "normalized_power": 0.009947344322344322,
+            "sample_count": 728
+          },
+          {
+            "wind_speed_ms": 1.513417729674011,
+            "normalized_power": 0.009967143409354465,
+            "sample_count": 2587
+          },
+          {
+            "wind_speed_ms": 2.480102654348145,
+            "normalized_power": 0.01883927262061886,
+            "sample_count": 2273
+          },
+          {
+            "wind_speed_ms": 3.4917532255430346,
+            "normalized_power": 0.04637514290380533,
+            "sample_count": 2041
+          },
+          {
+            "wind_speed_ms": 4.522385030130035,
+            "normalized_power": 0.092883761496987,
+            "sample_count": 2102
+          },
+          {
+            "wind_speed_ms": 5.5109086975335355,
+            "normalized_power": 0.16519255733448723,
+            "sample_count": 2311
+          },
+          {
+            "wind_speed_ms": 6.487163323782235,
+            "normalized_power": 0.2778646472915814,
+            "sample_count": 2443
+          },
+          {
+            "wind_speed_ms": 7.477414136386262,
+            "normalized_power": 0.42137796582047454,
+            "sample_count": 2009
+          },
+          {
+            "wind_speed_ms": 8.475018232518233,
+            "normalized_power": 0.5717749892749893,
+            "sample_count": 1554
+          },
+          {
+            "wind_speed_ms": 9.491428737233054,
+            "normalized_power": 0.712691504178273,
+            "sample_count": 1436
+          },
+          {
+            "wind_speed_ms": 10.516771295709152,
+            "normalized_power": 0.8553086028323822,
+            "sample_count": 1577
+          },
+          {
+            "wind_speed_ms": 11.484754115226337,
+            "normalized_power": 0.9386244855967077,
+            "sample_count": 1620
+          },
+          {
+            "wind_speed_ms": 12.449826642335767,
+            "normalized_power": 0.9623768248175182,
+            "sample_count": 1096
+          },
+          {
+            "wind_speed_ms": 13.432667243367936,
+            "normalized_power": 0.966926182237601,
+            "sample_count": 578
+          },
+          {
+            "wind_speed_ms": 14.435515873015873,
+            "normalized_power": 0.9527248677248678,
+            "sample_count": 252
+          },
+          {
+            "wind_speed_ms": 15.401182795698924,
+            "normalized_power": 0.9604569892473117,
+            "sample_count": 124
+          },
+          {
+            "wind_speed_ms": 16.329139784946236,
+            "normalized_power": 0.9453225806451613,
+            "sample_count": 31
+          },
+          {
+            "wind_speed_ms": 17.450686274509806,
+            "normalized_power": 0.9461764705882353,
+            "sample_count": 17
+          },
+          {
+            "wind_speed_ms": 18.45777777777778,
+            "normalized_power": 0.9305555555555556,
+            "sample_count": 3
+          },
+          {
+            "wind_speed_ms": 19.312916666666666,
+            "normalized_power": 0.9766666666666667,
+            "sample_count": 4
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      {
+        "code": "TIMESTAMP_ROLE_UNCONFIRMED",
+        "message": "Start/end timestamp role is an explicit assumption, not confirmed by the organizer."
+      },
+      {
+        "code": "WIND_HEIGHT_UNKNOWN",
+        "message": "Historical wind measurement height is unknown; no height correction is applied."
+      },
+      {
+        "code": "TELEMETRY_AVAILABILITY_UNCONFIRMED",
+        "message": "Observation publication times are unknown; interval end is used as the history cutoff."
+      }
+    ]
+  },
+  "weather": {
+    "source": "NOAA GFS 0.5 degree operational archive (AWS)",
+    "run_id": "gfs.20260226/12",
+    "issued_at": "2026-02-26T12:00:00Z",
+    "available_at": "2026-02-26T15:51:21Z",
+    "availability_evidence": "All NOAA public S3 GRIB/index Last-Modified values satisfy issued_at <= timestamp <= as_of; available_at is their maximum. Evidence records current object version existence, not historical access logs. Provenance SHA-256=2e2f75cf252cab74c497992af9e341de93d8e302c97f1165560666c5133c5861; https://registry.opendata.aws/noaa-gfs-bdp-pds/",
+    "wind_height_m": 100.0,
+    "input_mode": "provided"
+  },
+  "points": [
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-26T20:00:00Z",
+      "normalized_power": 0.16442374858216446,
+      "wind_speed_ms": 5.398940492130329,
+      "temperature_c": -0.6827636718749659,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-26T21:00:00Z",
+      "normalized_power": 0.08026554243626689,
+      "wind_speed_ms": 4.1617269093574984,
+      "temperature_c": -0.7275878906249507,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-26T22:00:00Z",
+      "normalized_power": 0.05416196596705853,
+      "wind_speed_ms": 3.606902393883263,
+      "temperature_c": -0.7532552083332764,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-26T23:00:00Z",
+      "normalized_power": 0.06047251155351869,
+      "wind_speed_ms": 3.741031347496799,
+      "temperature_c": -0.7597656249999432,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T00:00:00Z",
+      "normalized_power": 0.06808319322852091,
+      "wind_speed_ms": 3.9027943449060887,
+      "temperature_c": -0.7662760416666099,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T01:00:00Z",
+      "normalized_power": 0.058213880103389834,
+      "wind_speed_ms": 3.6930247419103646,
+      "temperature_c": -0.6421386718749508,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T02:00:00Z",
+      "normalized_power": 0.037626362760573,
+      "wind_speed_ms": 3.098852209981131,
+      "temperature_c": -0.38735351562496595,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T03:00:00Z",
+      "normalized_power": 0.021196207593135855,
+      "wind_speed_ms": 2.505040596677315,
+      "temperature_c": -0.13256835937498107,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T04:00:00Z",
+      "normalized_power": 0.017842762960955143,
+      "wind_speed_ms": 2.222919123806292,
+      "temperature_c": -0.01737467447914772,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T05:00:00Z",
+      "normalized_power": 0.01887127937577656,
+      "wind_speed_ms": 2.3213726265157826,
+      "temperature_c": -0.041772460937465894,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T06:00:00Z",
+      "normalized_power": 0.022306891292728392,
+      "wind_speed_ms": 2.545182450044131,
+      "temperature_c": -0.06617024739578407,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T07:00:00Z",
+      "normalized_power": 0.031247886351633426,
+      "wind_speed_ms": 2.868324054390769,
+      "temperature_c": 0.021053059895886392,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T08:00:00Z",
+      "normalized_power": 0.04149803309598861,
+      "wind_speed_ms": 3.238780456831175,
+      "temperature_c": 0.21989746093754547,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T09:00:00Z",
+      "normalized_power": 0.05461045416438855,
+      "wind_speed_ms": 3.616434890208932,
+      "temperature_c": 0.4187418619792046,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T10:00:00Z",
+      "normalized_power": 0.07397093948189394,
+      "wind_speed_ms": 4.027936812112308,
+      "temperature_c": 0.21013997395836742,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T11:00:00Z",
+      "normalized_power": 0.0949276331911648,
+      "wind_speed_ms": 4.473365715193985,
+      "temperature_c": -0.40590820312496595,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T12:00:00Z",
+      "normalized_power": 0.12835764489367507,
+      "wind_speed_ms": 4.924107341841335,
+      "temperature_c": -1.0219563802082994,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T13:00:00Z",
+      "normalized_power": 0.14399977790951662,
+      "wind_speed_ms": 5.130045952823647,
+      "temperature_c": -1.808723958333303,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T14:00:00Z",
+      "normalized_power": 0.14096079239571507,
+      "wind_speed_ms": 5.09003577934706,
+      "temperature_c": -2.7662109374999773,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T15:00:00Z",
+      "normalized_power": 0.1380926265438553,
+      "wind_speed_ms": 5.052274555158473,
+      "temperature_c": -3.7236979166666515,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T16:00:00Z",
+      "normalized_power": 0.12071951247753726,
+      "wind_speed_ms": 4.823546479797434,
+      "temperature_c": -4.4190234374999875,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T17:00:00Z",
+      "normalized_power": 0.09299995696314763,
+      "wind_speed_ms": 4.432393474073599,
+      "temperature_c": -4.852187499999985,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T18:00:00Z",
+      "normalized_power": 0.07777218613102412,
+      "wind_speed_ms": 4.108731289941409,
+      "temperature_c": -5.285351562499983,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T19:00:00Z",
+      "normalized_power": 0.07663377668703199,
+      "wind_speed_ms": 4.084534702591807,
+      "temperature_c": -5.618688151041644,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T20:00:00Z",
+      "normalized_power": 0.08812289262471462,
+      "wind_speed_ms": 4.328732779850352,
+      "temperature_c": -5.852197265624966,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T21:00:00Z",
+      "normalized_power": 0.10262619156844872,
+      "wind_speed_ms": 4.585336424154685,
+      "temperature_c": -6.085706380208288,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T22:00:00Z",
+      "normalized_power": 0.11290261367416982,
+      "wind_speed_ms": 4.720632044782436,
+      "temperature_c": -6.288906249999949,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-27T23:00:00Z",
+      "normalized_power": 0.11353479846375177,
+      "wind_speed_ms": 4.72895515885638,
+      "temperature_c": -6.461796874999948,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T00:00:00Z",
+      "normalized_power": 0.11416705515128342,
+      "wind_speed_ms": 4.737279219512473,
+      "temperature_c": -6.634687499999947,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T01:00:00Z",
+      "normalized_power": 0.11448751090511952,
+      "wind_speed_ms": 4.741498222941191,
+      "temperature_c": -6.6592122395832885,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T02:00:00Z",
+      "normalized_power": 0.11450765857100648,
+      "wind_speed_ms": 4.741763479752592,
+      "temperature_c": -6.535371093749973,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T03:00:00Z",
+      "normalized_power": 0.11455086059524988,
+      "wind_speed_ms": 4.742332261826961,
+      "temperature_c": -6.411529947916657,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T04:00:00Z",
+      "normalized_power": 0.11653404203521812,
+      "wind_speed_ms": 4.768442104433423,
+      "temperature_c": -6.133326822916663,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T05:00:00Z",
+      "normalized_power": 0.12079540220609186,
+      "wind_speed_ms": 4.8245456162496385,
+      "temperature_c": -5.7007617187499875,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T06:00:00Z",
+      "normalized_power": 0.12574327877150804,
+      "wind_speed_ms": 4.88968755220951,
+      "temperature_c": -5.268196614583312,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T07:00:00Z",
+      "normalized_power": 0.13130858833059417,
+      "wind_speed_ms": 4.962958385485512,
+      "temperature_c": -4.978160807291639,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T08:00:00Z",
+      "normalized_power": 0.13715668688383598,
+      "wind_speed_ms": 5.039952315387692,
+      "temperature_c": -4.830654296874968,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T09:00:00Z",
+      "normalized_power": 0.1430089840342277,
+      "wind_speed_ms": 5.117001522486675,
+      "temperature_c": -4.6831477864582975,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T10:00:00Z",
+      "normalized_power": 0.12489068192905407,
+      "wind_speed_ms": 4.878462573539078,
+      "temperature_c": -4.765065104166629,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T11:00:00Z",
+      "normalized_power": 0.08851772098297064,
+      "wind_speed_ms": 4.337124750690949,
+      "temperature_c": -5.0764062499999625,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T12:00:00Z",
+      "normalized_power": 0.06452202483745906,
+      "wind_speed_ms": 3.8271026660503686,
+      "temperature_c": -5.387747395833296,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T13:00:00Z",
+      "normalized_power": 0.04826786349713733,
+      "wind_speed_ms": 3.481624826999391,
+      "temperature_c": -5.562405598958302,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T14:00:00Z",
+      "normalized_power": 0.04271262196923557,
+      "wind_speed_ms": 3.282677606369547,
+      "temperature_c": -5.6003808593749795,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T15:00:00Z",
+      "normalized_power": 0.03723752219023118,
+      "wind_speed_ms": 3.0847989010476726,
+      "temperature_c": -5.638356119791657,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T16:00:00Z",
+      "normalized_power": 0.031819610089062825,
+      "wind_speed_ms": 2.888987048222981,
+      "temperature_c": -5.803811848958324,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T17:00:00Z",
+      "normalized_power": 0.026935831331681058,
+      "wind_speed_ms": 2.712479613363975,
+      "temperature_c": -6.096748046874978,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T18:00:00Z",
+      "normalized_power": 0.023131578179123438,
+      "wind_speed_ms": 2.574987929389286,
+      "temperature_c": -6.389684244791633,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_1",
+      "valid_at": "2026-02-28T19:00:00Z",
+      "normalized_power": 0.021506373058309138,
+      "wind_speed_ms": 2.5162504637411818,
+      "temperature_c": -6.700898437499964,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-26T20:00:00Z",
+      "normalized_power": 0.1570022768467597,
+      "wind_speed_ms": 5.398940492130329,
+      "temperature_c": -0.6827636718749659,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-26T21:00:00Z",
+      "normalized_power": 0.07660858843625927,
+      "wind_speed_ms": 4.1617269093574984,
+      "temperature_c": -0.7275878906249507,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-26T22:00:00Z",
+      "normalized_power": 0.05157140089606069,
+      "wind_speed_ms": 3.606902393883263,
+      "temperature_c": -0.7532552083332764,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-26T23:00:00Z",
+      "normalized_power": 0.057624146714839564,
+      "wind_speed_ms": 3.741031347496799,
+      "temperature_c": -0.7597656249999432,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T00:00:00Z",
+      "normalized_power": 0.06492391518260317,
+      "wind_speed_ms": 3.9027943449060887,
+      "temperature_c": -0.7662760416666099,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T01:00:00Z",
+      "normalized_power": 0.055457785363253395,
+      "wind_speed_ms": 3.6930247419103646,
+      "temperature_c": -0.6421386718749508,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T02:00:00Z",
+      "normalized_power": 0.03568086594030169,
+      "wind_speed_ms": 3.098852209981131,
+      "temperature_c": -0.38735351562496595,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T03:00:00Z",
+      "normalized_power": 0.019518052393653076,
+      "wind_speed_ms": 2.505040596677315,
+      "temperature_c": -0.13256835937498107,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T04:00:00Z",
+      "normalized_power": 0.016478870119518867,
+      "wind_speed_ms": 2.222919123806292,
+      "temperature_c": -0.01737467447914772,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T05:00:00Z",
+      "normalized_power": 0.017382465670711125,
+      "wind_speed_ms": 2.3213726265157826,
+      "temperature_c": -0.041772460937465894,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T06:00:00Z",
+      "normalized_power": 0.020610663714901865,
+      "wind_speed_ms": 2.545182450044131,
+      "temperature_c": -0.06617024739578407,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T07:00:00Z",
+      "normalized_power": 0.029406176270072103,
+      "wind_speed_ms": 2.868324054390769,
+      "temperature_c": 0.021053059895886392,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T08:00:00Z",
+      "normalized_power": 0.039489538780436165,
+      "wind_speed_ms": 3.238780456831175,
+      "temperature_c": 0.21989746093754547,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T09:00:00Z",
+      "normalized_power": 0.0520015673569425,
+      "wind_speed_ms": 3.616434890208932,
+      "temperature_c": 0.4187418619792046,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T10:00:00Z",
+      "normalized_power": 0.07057113395772731,
+      "wind_speed_ms": 4.027936812112308,
+      "temperature_c": 0.21013997395836742,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T11:00:00Z",
+      "normalized_power": 0.0906717003012107,
+      "wind_speed_ms": 4.473365715193985,
+      "temperature_c": -0.40590820312496595,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T12:00:00Z",
+      "normalized_power": 0.12226905350238723,
+      "wind_speed_ms": 4.924107341841335,
+      "temperature_c": -1.0219563802082994,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T13:00:00Z",
+      "normalized_power": 0.13733310656213052,
+      "wind_speed_ms": 5.130045952823647,
+      "temperature_c": -1.808723958333303,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T14:00:00Z",
+      "normalized_power": 0.13440643160153948,
+      "wind_speed_ms": 5.09003577934706,
+      "temperature_c": -2.7662109374999773,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T15:00:00Z",
+      "normalized_power": 0.13164426339003008,
+      "wind_speed_ms": 5.052274555158473,
+      "temperature_c": -3.7236979166666515,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T16:00:00Z",
+      "normalized_power": 0.11491320044337558,
+      "wind_speed_ms": 4.823546479797434,
+      "temperature_c": -4.4190234374999875,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T17:00:00Z",
+      "normalized_power": 0.08882277391770996,
+      "wind_speed_ms": 4.432393474073599,
+      "temperature_c": -4.852187499999985,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T18:00:00Z",
+      "normalized_power": 0.07421709125990346,
+      "wind_speed_ms": 4.108731289941409,
+      "temperature_c": -5.285351562499983,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T19:00:00Z",
+      "normalized_power": 0.07312518836374722,
+      "wind_speed_ms": 4.084534702591807,
+      "temperature_c": -5.618688151041644,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T20:00:00Z",
+      "normalized_power": 0.08414494846222113,
+      "wind_speed_ms": 4.328732779850352,
+      "temperature_c": -5.852197265624966,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T21:00:00Z",
+      "normalized_power": 0.09748854704569393,
+      "wind_speed_ms": 4.585336424154685,
+      "temperature_c": -6.085706380208288,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T22:00:00Z",
+      "normalized_power": 0.107385187593893,
+      "wind_speed_ms": 4.720632044782436,
+      "temperature_c": -6.288906249999949,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-27T23:00:00Z",
+      "normalized_power": 0.10799400898699715,
+      "wind_speed_ms": 4.72895515885638,
+      "temperature_c": -6.461796874999948,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T00:00:00Z",
+      "normalized_power": 0.1086028996209477,
+      "wind_speed_ms": 4.737279219512473,
+      "temperature_c": -6.634687499999947,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T01:00:00Z",
+      "normalized_power": 0.10891151242165703,
+      "wind_speed_ms": 4.741498222941191,
+      "temperature_c": -6.6592122395832885,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T02:00:00Z",
+      "normalized_power": 0.10893091549843972,
+      "wind_speed_ms": 4.741763479752592,
+      "temperature_c": -6.535371093749973,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T03:00:00Z",
+      "normalized_power": 0.10897252092302163,
+      "wind_speed_ms": 4.742332261826961,
+      "temperature_c": -6.411529947916657,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T04:00:00Z",
+      "normalized_power": 0.11088241073207289,
+      "wind_speed_ms": 4.768442104433423,
+      "temperature_c": -6.133326822916663,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T05:00:00Z",
+      "normalized_power": 0.11498628554605808,
+      "wind_speed_ms": 4.8245456162496385,
+      "temperature_c": -5.7007617187499875,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T06:00:00Z",
+      "normalized_power": 0.11975130544705265,
+      "wind_speed_ms": 4.88968755220951,
+      "temperature_c": -5.268196614583312,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T07:00:00Z",
+      "normalized_power": 0.12511094012136886,
+      "wind_speed_ms": 4.962958385485512,
+      "temperature_c": -4.978160807291639,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T08:00:00Z",
+      "normalized_power": 0.13074291287185136,
+      "wind_speed_ms": 5.039952315387692,
+      "temperature_c": -4.830654296874968,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T09:00:00Z",
+      "normalized_power": 0.13637892905363436,
+      "wind_speed_ms": 5.117001522486675,
+      "temperature_c": -4.6831477864582975,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T10:00:00Z",
+      "normalized_power": 0.11893021767978407,
+      "wind_speed_ms": 4.878462573539078,
+      "temperature_c": -4.765065104166629,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T11:00:00Z",
+      "normalized_power": 0.08452364720733392,
+      "wind_speed_ms": 4.337124750690949,
+      "temperature_c": -5.0764062499999625,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T12:00:00Z",
+      "normalized_power": 0.0615082284097804,
+      "wind_speed_ms": 3.8271026660503686,
+      "temperature_c": -5.387747395833296,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T13:00:00Z",
+      "normalized_power": 0.046099460492886726,
+      "wind_speed_ms": 3.481624826999391,
+      "temperature_c": -5.562405598958302,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T14:00:00Z",
+      "normalized_power": 0.040684364592734744,
+      "wind_speed_ms": 3.282677606369547,
+      "temperature_c": -5.6003808593749795,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T15:00:00Z",
+      "normalized_power": 0.035298352350274065,
+      "wind_speed_ms": 3.0847989010476726,
+      "temperature_c": -5.638356119791657,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T16:00:00Z",
+      "normalized_power": 0.029968597262089176,
+      "wind_speed_ms": 2.888987048222981,
+      "temperature_c": -5.803811848958324,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T17:00:00Z",
+      "normalized_power": 0.025164284420595935,
+      "wind_speed_ms": 2.712479613363975,
+      "temperature_c": -6.096748046874978,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T18:00:00Z",
+      "normalized_power": 0.02142193179139493,
+      "wind_speed_ms": 2.574987929389286,
+      "temperature_c": -6.389684244791633,
+      "extrapolated": false
+    },
+    {
+      "turbine_id": "turbine_2",
+      "valid_at": "2026-02-28T19:00:00Z",
+      "normalized_power": 0.019823171032589664,
+      "wind_speed_ms": 2.5162504637411818,
+      "temperature_c": -6.700898437499964,
+      "extrapolated": false
+    }
+  ],
+  "warnings": [
+    {
+      "code": "TIMESTAMP_ROLE_UNCONFIRMED",
+      "message": "Start/end timestamp role is an explicit assumption, not confirmed by the organizer."
+    },
+    {
+      "code": "WIND_HEIGHT_UNKNOWN",
+      "message": "Historical wind measurement height is unknown; no height correction is applied."
+    },
+    {
+      "code": "TELEMETRY_AVAILABILITY_UNCONFIRMED",
+      "message": "Observation publication times are unknown; interval end is used as the history cutoff."
+    }
+  ]
+}

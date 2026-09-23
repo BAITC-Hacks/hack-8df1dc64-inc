@@ -1,0 +1,15 @@
+{
+  "runs": 28,
+  "forecast_points": 2688,
+  "csv_rows": 1344,
+  "unique_hours_per_turbine": 672,
+  "first_hour": "2026-01-31T20:00:00Z",
+  "last_hour": "2026-02-28T19:00:00Z",
+  "timestamp_role": "end",
+  "timestamp_role_confirmed": false,
+  "limitations": [
+    "February actual power is unavailable; no February accuracy claim.",
+    "Normalized power, not kW/kWh.",
+    "No OpenAI calls in batch mode."
+  ]
+}

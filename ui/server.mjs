@@ -8,6 +8,8 @@ const assets = new Map([
   ['/index.html', ['index.html', 'text/html; charset=utf-8']],
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
   ['/app.mjs', ['app.mjs', 'text/javascript; charset=utf-8']],
+  ['/api.mjs', ['api.mjs', 'text/javascript; charset=utf-8']],
+  ['/results.mjs', ['results.mjs', 'text/javascript; charset=utf-8']],
   ['/parameters.mjs', ['parameters.mjs', 'text/javascript; charset=utf-8']],
   ['/draft.mjs', ['draft.mjs', 'text/javascript; charset=utf-8']],
   ['/boot.mjs', ['boot.mjs', 'text/javascript; charset=utf-8']],
@@ -41,5 +43,5 @@ if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) 
   if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('PORT must be 1–65535');
   const server = createUiServer();
   server.on('error', (error) => { console.error(error.message); process.exitCode = 1; });
-  server.listen(port, '127.0.0.1', () => console.log(`UI: http://127.0.0.1:${port}`));
+  server.listen(port, process.env.HOST ?? '127.0.0.1', () => console.log(`UI: http://127.0.0.1:${port}`));
 }
