@@ -63,7 +63,7 @@ test('static server serves the page and every linked asset, without API routes',
     const content = await result.text();
     assert.ok(content.length > 0, path);
     if (path === 'terms.html') assert.match(content, /<h1>Условия использования<\/h1>/);
-    if (path === 'privacy.html') assert.match(content, /wind-forecast\.selection\.v1/);
+    if (path === 'privacy.html') assert.match(content, /Как удалить сохранённый выбор/);
   }
   assert.equal((await fetch(`${base}/api/forecast`, { method: 'POST' })).status, 404);
   assert.equal((await fetch(`${base}/README.md`)).status, 404);

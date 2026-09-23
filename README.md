@@ -1,4 +1,4 @@
-﻿# Ветропрогноз — Agentic AI для двух турбин ВЭС
+﻿# Vento — Agentic AI для двух турбин ВЭС
 
 Почасовой прогноз нормализованной мощности на 24–48 часов: архив NOAA GFS → проверка доступности на момент запуска → подготовка реальной истории → эмпирическая кривая мощности → анализ OpenAI → обновление погоды и повторный расчёт при изменении входов.
 
@@ -57,6 +57,8 @@ OPENAI_MODEL=gpt-4o-mini
 
 Не перезаписывайте существующий `.env`. `OPENAI_MODEL` можно изменить, если у ключа есть доступ к другой модели OpenAI. Сохраните файл и запустите backend по инструкции ниже; если сервер уже работает, перезапустите его. Для Docker Compose используется тот же `.env`. Ключ остаётся на backend: не вставляйте его в UI, код или Git.
 
+Проверяющий использует свой ключ: ключ не входит в поставку проекта.
+
 Первый терминал, из корня репозитория:
 
 ```sh
@@ -87,7 +89,7 @@ node ui/server.mjs
 ```sh
 python -m unittest discover -s backend/tests -t . -v
 python -m unittest discover -s data/tests -v
-node --test ui/tests/ui.test.mjs ui/tests/draft.test.mjs ui/tests/design.test.mjs ui/tests/api.test.mjs
+node --test ui/tests/*.test.mjs
 ```
 
 Эквивалентные Linux/Git Bash команды: `./backend/test.sh`, `./data/test.sh`, `./ui/test.sh`.
